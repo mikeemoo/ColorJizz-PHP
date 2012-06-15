@@ -1,0 +1,2072 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a5" title="">
+  <file path="Autoloader.php" hash="9ceb7dbf18b63367ff17a597ff686f5f" package="Default">
+    <include line="33" type="Require" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz" line="18" package="Default">
+      <name>Autoloader</name>
+      <full_name>\MischiefCollective\ColorJizz\Autoloader</full_name>
+      <extends/>
+      <docblock line="18">
+        <description><![CDATA[Autoloader is used to autoload the library files]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="18" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="MischiefCollective\ColorJizz" line="21" package="Default">
+        <name>register</name>
+        <full_name>register</full_name>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="MischiefCollective\ColorJizz" line="26" package="Default">
+        <name>autoload</name>
+        <full_name>autoload</full_name>
+        <argument line="26">
+          <name>$class</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="21" code="50010">No DocBlock was found for method register()</error>
+      <error line="26" code="50010">No DocBlock was found for method autoload()</error>
+    </parse_markers>
+  </file>
+  <file path="ColorJizz.php" hash="170e7e0b70375d3b1d1e6a0f51c5c789" package="Default">
+    <namespace-alias name="HSV">MischiefCollective\ColorJizz\Formats\HSV</namespace-alias>
+    <namespace-alias name="CIELCh">MischiefCollective\ColorJizz\Formats\CIELCh</namespace-alias>
+    <namespace-alias name="RGB">MischiefCollective\ColorJizz\Formats\RGB</namespace-alias>
+    <namespace-alias name="Hex">MischiefCollective\ColorJizz\Formats\Hex</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz" line="23" package="Default">
+      <name>ColorJizz</name>
+      <full_name>\MischiefCollective\ColorJizz\ColorJizz</full_name>
+      <extends/>
+      <docblock line="23">
+        <description><![CDATA[ColorJizz is the base class that all color objects extend]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="23" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="26" namespace="MischiefCollective\ColorJizz" package="Default">
+        <name>$toSelf</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="33" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="33">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="40" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="40">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="47" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="47">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="47" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="54" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="54">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="54" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="61" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="61">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="61" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="68" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="68">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="68" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="75" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="75">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="75" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="82" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="82">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="82" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="true" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="89" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="89">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="89" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="98" package="Default">
+        <name>distance</name>
+        <full_name>distance</full_name>
+        <docblock line="98">
+          <description><![CDATA[Find the distance to the destination color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="98" name="param" description="The destination color" type="\MischiefCollective\ColorJizz\ColorJizz" variable="$destinationColor">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz</type>
+          </tag>
+          <tag line="98" name="return" description="distance to destination color" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="98">
+          <name>$destinationColor</name>
+          <default><![CDATA[]]></default>
+          <type>MischiefCollective\ColorJizz\ColorJizz</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="111" package="Default">
+        <name>websafe</name>
+        <full_name>websafe</full_name>
+        <docblock line="111">
+          <description><![CDATA[Find the closest websafe color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="111" name="return" description="The closest color" type="\MischiefCollective\ColorJizz\ColorJizz">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="132" package="Default">
+        <name>match</name>
+        <full_name>match</full_name>
+        <docblock line="132">
+          <description><![CDATA[Match the current color to the closest from the array $palette]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="132" name="param" description="An array of ColorJizz objects to match against" type="array" variable="$palette">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="132" name="return" description="The closest color" type="\MischiefCollective\ColorJizz\ColorJizz">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz</type>
+          </tag>
+        </docblock>
+        <argument line="132">
+          <name>$palette</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="146" package="Default">
+        <name>equal</name>
+        <full_name>equal</full_name>
+        <argument line="146">
+          <name>$parts</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="146">
+          <name>$includeSelf</name>
+          <default><![CDATA[NULL]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="162" package="Default">
+        <name>split</name>
+        <full_name>split</full_name>
+        <argument line="162">
+          <name>$includeSelf</name>
+          <default><![CDATA[NULL]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="180" package="Default">
+        <name>complement</name>
+        <full_name>complement</full_name>
+        <docblock line="180">
+          <description><![CDATA[Return the opposite, complimentary color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="180" name="return" description="The greyscale color" type="\MischiefCollective\ColorJizz\ColorJizz">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="192" package="Default">
+        <name>sweetspot</name>
+        <full_name>sweetspot</full_name>
+        <docblock line="192">
+          <description><![CDATA[Find complimentary colors]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="192" name="param" description="Include the current color in the return array" type="int" variable="$includeSelf">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="192" name="return" description="Array of complimentary colors" type="\MischiefCollective\ColorJizz\ColorJizz[]">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz[]</type>
+          </tag>
+        </docblock>
+        <argument line="192">
+          <name>$includeSelf</name>
+          <default><![CDATA[NULL]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="209" package="Default">
+        <name>analogous</name>
+        <full_name>analogous</full_name>
+        <argument line="209">
+          <name>$includeSelf</name>
+          <default><![CDATA[NULL]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="224" package="Default">
+        <name>rectangle</name>
+        <full_name>rectangle</full_name>
+        <argument line="224">
+          <name>$sideLength</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="224">
+          <name>$includeSelf</name>
+          <default><![CDATA[NULL]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="247" package="Default">
+        <name>range</name>
+        <full_name>range</full_name>
+        <argument line="247">
+          <name>$destinationColor</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="247">
+          <name>$steps</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="247">
+          <name>$includeSelf</name>
+          <default><![CDATA[NULL]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="272" package="Default">
+        <name>greyscale</name>
+        <full_name>greyscale</full_name>
+        <docblock line="272">
+          <description><![CDATA[Return a greyscale version of the current color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="272" name="return" description="The greyscale color" type="\MischiefCollective\ColorJizz\ColorJizz">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="287" package="Default">
+        <name>hue</name>
+        <full_name>hue</full_name>
+        <docblock line="287">
+          <description><![CDATA[Modify the hue by $degreeModifier degrees]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="287" name="param" description="Degrees to modify by" type="int" variable="$degreeModifier">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="287" name="return" description="The modified color" type="\MischiefCollective\ColorJizz\ColorJizz">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz</type>
+          </tag>
+        </docblock>
+        <argument line="287">
+          <name>$degreeModifier</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="302" package="Default">
+        <name>saturation</name>
+        <full_name>saturation</full_name>
+        <docblock line="302">
+          <description><![CDATA[Modify the saturation by $brightnessModifier]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="302" name="param" description="Value to modify by" type="int" variable="$satModifier">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="302" name="return" description="The modified color" type="\MischiefCollective\ColorJizz\ColorJizz">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz</type>
+          </tag>
+        </docblock>
+        <argument line="302">
+          <name>$satModifier</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz" line="317" package="Default">
+        <name>brightness</name>
+        <full_name>brightness</full_name>
+        <docblock line="317">
+          <description><![CDATA[Modify the brightness by $brightnessModifier]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="317" name="param" description="Value to modify by" type="int" variable="$brightnessModifier">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="317" name="return" description="The modified color" type="\MischiefCollective\ColorJizz\ColorJizz">
+            <type by_reference="false">\MischiefCollective\ColorJizz\ColorJizz</type>
+          </tag>
+        </docblock>
+        <argument line="317">
+          <name>$brightnessModifier</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="50018">No DocBlock was found for property $toSelf</error>
+      <error line="146" code="50010">No DocBlock was found for method equal()</error>
+      <error line="162" code="50010">No DocBlock was found for method split()</error>
+      <error line="209" code="50010">No DocBlock was found for method analogous()</error>
+      <error line="224" code="50010">No DocBlock was found for method rectangle()</error>
+      <error line="247" code="50010">No DocBlock was found for method range()</error>
+    </parse_markers>
+  </file>
+  <file path="Exceptions\InvalidArgumentException.php" hash="1508e8cada5da5bc839993982bc2fc67" package="Default">
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Exceptions" line="5" package="Default">
+      <name>InvalidArgumentException</name>
+      <full_name>\MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException</full_name>
+      <extends>Exception</extends>
+    </class>
+    <parse_markers>
+      <error line="5" code="50000">No DocBlock was found for \MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\CIELab.php" hash="dcaf88293bb11475e327b3196917863d" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="20" package="Default">
+      <name>CIELab</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\CIELab</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="20">
+        <description><![CDATA[CIELab represents the CIELab color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="20" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="27" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$l</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="33" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$a</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="39" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$b</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="48" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="48">
+          <description><![CDATA[Create a new CIELab color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="param" description="The lightness" type="float" variable="$l">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The a dimenson" type="float" variable="$a">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The b dimenson" type="float" variable="$b">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$l</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$a</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$b</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="56" package="Default">
+        <name>create</name>
+        <full_name>create</full_name>
+        <argument line="56">
+          <name>$l</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$a</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$b</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="66" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="66">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="66" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="76" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="76">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="76" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="86" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="86">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="86" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="122" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="122">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="122" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="132" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="132">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="132" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="142" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="142">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="142" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="152" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="152">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="152" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="162" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="162">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="162" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="172" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="172">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="172" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="194" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="194">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="194" name="return" description="The color in format: $l,$a,$b" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="27" code="50018">No DocBlock was found for property $l</error>
+      <error line="33" code="50018">No DocBlock was found for property $a</error>
+      <error line="39" code="50018">No DocBlock was found for property $b</error>
+      <error line="56" code="50010">No DocBlock was found for method create()</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\CIELCh.php" hash="a52db2446aa4824b544d3e10bf57e221" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="20" package="Default">
+      <name>CIELCh</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\CIELCh</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="20">
+        <description><![CDATA[CIELCh represents the CIELCh color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="20" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="27" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$l</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="33" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$c</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="39" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$h</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="48" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="48">
+          <description><![CDATA[Create a new CIELCh color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="param" description="The lightness" type="float" variable="$l">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The chroma" type="float" variable="$c">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The hue" type="float" variable="$h">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$l</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$c</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$h</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="64" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="64">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="64" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="74" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="74">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="74" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="84" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="84">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="84" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="94" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="94">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="94" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="104" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="104">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="104" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="114" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="114">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="114" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="124" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="124">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="124" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="134" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="134">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="134" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="148" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="148">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="148" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="158" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="158">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="158" name="return" description="The color in format: $l,$c,$h" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="27" code="50018">No DocBlock was found for property $l</error>
+      <error line="33" code="50018">No DocBlock was found for property $c</error>
+      <error line="39" code="50018">No DocBlock was found for property $h</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\CMY.php" hash="b1e4f8bf541ac4e36cd3f3199232371b" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="20" package="Default">
+      <name>CMY</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\CMY</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="20">
+        <description><![CDATA[CMY represents the CMY color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="20" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="27" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$c</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="33" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$m</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="39" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$y</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="48" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="48">
+          <description><![CDATA[Create a new CIELab color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="param" description="The cyan" type="float" variable="$c">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The magenta" type="float" variable="$m">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The yellow" type="float" variable="$y">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$c</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$m</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$y</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="56" package="Default">
+        <name>create</name>
+        <full_name>create</full_name>
+        <argument line="56">
+          <name>$c</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$m</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$y</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="66" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="66">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="66" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="76" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="76">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="76" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="89" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="89">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="89" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="99" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="99">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="99" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="109" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="109">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="109" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="119" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="119">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="119" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="129" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="129">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="129" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="161" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="161">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="161" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="171" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="171">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="171" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="181" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="181">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="181" name="return" description="The color in format: $c,$m,$y" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="27" code="50018">No DocBlock was found for property $c</error>
+      <error line="33" code="50018">No DocBlock was found for property $m</error>
+      <error line="39" code="50018">No DocBlock was found for property $y</error>
+      <error line="56" code="50010">No DocBlock was found for method create()</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\CMYK.php" hash="149df13bc6bb1c30c2e4012c03b42c43" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="20" package="Default">
+      <name>CMYK</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\CMYK</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="20">
+        <description><![CDATA[CMYK represents the CMYK color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="20" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="27" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$c</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="33" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$m</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="39" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$y</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="45" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$k</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="55" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="55">
+          <description><![CDATA[Create a new CMYK color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="55" name="param" description="The cyan" type="float" variable="$c">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="55" name="param" description="The magenta" type="float" variable="$m">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="55" name="param" description="The yellow" type="float" variable="$y">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="55" name="param" description="The key (black)" type="float" variable="$k">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="55">
+          <name>$c</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="55">
+          <name>$m</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="55">
+          <name>$y</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="55">
+          <name>$k</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="64" package="Default">
+        <name>create</name>
+        <full_name>create</full_name>
+        <argument line="64">
+          <name>$c</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="64">
+          <name>$m</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="64">
+          <name>$y</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="64">
+          <name>$k</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="74" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="74">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="74" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="84" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="84">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="84" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="94" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="94">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="94" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="104" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="104">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="104" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="114" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="114">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="114" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="124" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="124">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="124" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="137" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="137">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="137" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="147" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="147">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="147" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="157" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="157">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="157" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="167" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="167">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="167" name="return" description="The color in format: $c,$m,$y,$k" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="27" code="50018">No DocBlock was found for property $c</error>
+      <error line="33" code="50018">No DocBlock was found for property $m</error>
+      <error line="39" code="50018">No DocBlock was found for property $y</error>
+      <error line="45" code="50018">No DocBlock was found for property $k</error>
+      <error line="64" code="50010">No DocBlock was found for method create()</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\Hex.php" hash="ca629940c247a62b501e5e2b3a41c784" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <namespace-alias name="InvalidArgumentException">MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="21" package="Default">
+      <name>Hex</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\Hex</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="21">
+        <description><![CDATA[Hex represents the Hex color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="21" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="true" visibility="private" line="24" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$color_names</name>
+        <default><![CDATA[array('black' => 0, 'darkgreen' => 25600, 'green' => 32768, 'maroon' => 8388608, 'navy' => 128, 'myrtle' => 2179614, 'bistre' => 4008735, 'darkblue' => 139, 'darkred' => 9109504, 'sapphire' => 533863, 'sangria' => 9568266, 'burgundy' => 8388640, 'midnightblue' => 1644912, 'ultramarine' => 1182351, 'carmine' => 9830424, 'taupe' => 4734002, 'chocolate' => 8077056, 'auburn' => 7157018, 'sepia' => 7356948, 'arsenic' => 3884107, 'darkslategray' => 3100495, 'indigo' => 4915330, 'mediumblue' => 205, 'forestgreen' => 2263842, 'charcoal' => 4605510, 'russet' => 8406555, 'saddlebrown' => 9127187, 'carnelian' => 11737883, 'liver' => 5458767, 'darkolivegreen' => 5597999, 'cobalt' => 18347, 'eggplant' => 6373457, 'firebrick' => 11674146, 'bole' => 7947323, 'brown' => 10824234, 'byzantium' => 7350627, 'feldgrau' => 5070163, 'blue' => 255, 'lava' => 13570080, 'lime' => 65280, 'red' => 16711680, 'mahogany' => 12599296, 'olive' => 8421376, 'purple' => 8388736, 'teal' => 32896, 'rust' => 12009742, 'cordovan' => 8994629, 'darkslateblue' => 4734347, 'seagreen' => 3050327, 'jade' => 43115, 'darkcyan' => 35723, 'darkmagenta' => 9109643, 'cardinal' => 12852794, 'olivedrab' => 7048739, 'sienna' => 10506797, 'cerulean' => 31655, 'scarlet' => 16720896, 'crimson' => 14423100, 'viridian' => 4227693, 'limegreen' => 3329330, 'denim' => 1401021, 'malachite' => 776785, 'dimgray' => 6908265, 'harlequin' => 4194048, 'alizarin' => 14886454, 'orangered' => 16729344, 'persimmon' => 15489024, 'darkgoldenrod' => 12092939, 'raspberry' => 14879580, 'ruby' => 14684511, 'cinnabar' => 14893620, 'cinnamon' => 13789470, 'vermilion' => 14893620, 'copper' => 12088115, 'amaranth' => 15018832, 'mediumseagreen' => 3978097, 'mediumvioletred' => 13047173, 'red-violet' => 13047173, 'ochre' => 13399842, 'darkviolet' => 9699539, 'xanadu' => 7571064, 'cerise' => 14561635, 'razzmatazz' => 14886251, 'asparagus' => 8101979, 'tangerine' => 15893760, 'lawngreen' => 8190976, 'lightseagreen' => 2142890, 'steelblue' => 4620980, 'bronze' => 13467442, 'chartreuse' => 8388352, 'rose' => 16711807, 'springgreen' => 65407, 'gray' => 8421504, 'slategray' => 7372944, 'chestnut' => 13458524, 'indianred' => 13458524, 'darkorange' => 16747520, 'royalblue' => 4286945, 'pumpkin' => 16741656, 'gamboge' => 14981903, 'emerald' => 5294200, 'peru' => 13468991, 'slateblue' => 6970061, 'mediumspringgreen' => 64154, 'blueviolet' => 9055202, 'darkorchid' => 10040012, 'lightslategray' => 7833753, 'yellowgreen' => 10145074, 'brass' => 11904578, 'cadetblue' => 6266528, 'darkturquoise' => 52945, 'goldenrod' => 14329120, 'orange' => 16753920, 'deeppink' => 16716947, 'tomato' => 16737095, 'dodgerblue' => 2003199, 'bluegreen' => 56797, 'amber' => 16760576, 'deepskyblue' => 49151, 'fallow' => 12687979, 'olivine' => 10140019, 'amethyst' => 10053324, 'turquoise' => 3200456, 'coral' => 16744272, 'mediumslateblue' => 8087790, 'gold' => 16766720, 'darkseagreen' => 9419919, 'rosybrown' => 12357519, 'greenyellow' => 11403055, 'mediumpurple' => 9662680, 'palevioletred' => 14184595, 'mediumaquamarine' => 6737322, 'darkkhaki' => 12433259, 'mediumorchid' => 12211667, 'pear' => 13754929, 'mediumturquoise' => 4772300, 'cornflowerblue' => 6591981, 'saffron' => 16041008, 'salmon' => 16416882, 'puce' => 13404313, 'lightcoral' => 15761536, 'ecru' => 12759680, 'lemon' => 16640272, 'sandybrown' => 16032864, 'darksalmon' => 15308410, 'darkgray' => 11119017, 'aqua' => 65535, 'cyan' => 65535, 'fuchsia' => 16711935, 'magenta' => 16711935, 'pink-orange' => 16750950, 'yellow' => 16776960, 'lightgreen' => 9498256, 'tan' => 13808780, 'lightsalmon' => 16752762, 'hotpink' => 16738740, 'burlywood' => 14596231, 'orchid' => 14315734, 'palegreen' => 10025880, 'lilac' => 13148872, 'mustard' => 16767832, 'celadon' => 11329967, 'silver' => 12632256, 'skyblue' => 8900331, 'corn' => 16510045, 'maize' => 16510045, 'wisteria' => 13213916, 'flax' => 15654018, 'buff' => 15785090, 'lightskyblue' => 8900346, 'heliotrope' => 14644223, 'aquamarine' => 8388564, 'lightsteelblue' => 11584734, 'plum' => 14524637, 'violet' => 15631086, 'khaki' => 15787660, 'peach-orange' => 16764057, 'lightblue' => 11393254, 'thistle' => 14204888, 'lightpink' => 16758465, 'powderblue' => 11591910, 'lightgrey' => 13882323, 'apricot' => 16502449, 'palegoldenrod' => 15657130, 'peach-yellow' => 16441261, 'wheat' => 16113331, 'navajowhite' => 16768685, 'pink' => 16761035, 'paleturquoise' => 11529966, 'mauve' => 14725375, 'peachpuff' => 16767673, 'gainsboro' => 14474460, 'periwinkle' => 13421823, 'moccasin' => 16770229, 'peach' => 16770484, 'bisque' => 16770244, 'platinum' => 15066338, 'champaigne' => 16246734, 'blanchedalmond' => 16772045, 'antiquewhite' => 16444375, 'papayawhip' => 16773077, 'mistyrose' => 16770273, 'beige' => 16119260, 'lavender' => 15132410, 'lemonchiffon' => 16775885, 'lightgoldenrodyellow' => 16448210, 'cream' => 16776656, 'linen' => 16445670, 'cornsilk' => 16775388, 'oldlace' => 16643558, 'lightcyan' => 14745599, 'lightyellow' => 16777184, 'honeydew' => 15794160, 'whitesmoke' => 16119285, 'seashell' => 16774638, 'lavenderblush' => 16773365, 'aliceblue' => 15792383, 'floralwhite' => 16775920, 'magnolia' => 16315647, 'azure' => 15794175, 'ivory' => 16777200, 'mintcream' => 16121850, 'ghostwhite' => 16316671, 'snow' => 16775930, 'white' => 16777215)]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="256" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$hex</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="263" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="263">
+          <description><![CDATA[Create a new Hex]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="263" name="param" description="the hexidecimal value (i.e. 0x000000)" type="int" variable="$hex">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="263">
+          <name>$hex</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="280" package="Default">
+        <name>create</name>
+        <full_name>create</full_name>
+        <docblock line="280">
+          <description><![CDATA[Create a new Hex]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="280" name="param" description="the hexidecimal value (i.e. 0x000000)" type="int" variable="$hex">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="280" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+        <argument line="280">
+          <name>$hex</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="290" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="290">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="290" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="300" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="300">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="300" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="313" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="313">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="313" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="323" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="323">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="323" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="333" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="333">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="333" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="343" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="343">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="343" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="353" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="353">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="353" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="363" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="363">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="363" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="373" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="373">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="373" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="383" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="383">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="383" name="return" description="The color in format: RRGGBB" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="399" package="Default">
+        <name>fromString</name>
+        <full_name>fromString</full_name>
+        <docblock line="399">
+          <description><![CDATA[Create a new Hex from a string.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="399" name="param" description="Can be a color name or string hex value (i.e. &quot;FFFFFF&quot;)" type="string" variable="$str">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="399" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+        <argument line="399">
+          <name>$str</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="24" code="50018">No DocBlock was found for property $color_names</error>
+      <error line="256" code="50018">No DocBlock was found for property $hex</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\HSV.php" hash="76aeb53984b47b08e1633c05e3d5b1c8" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="20" package="Default">
+      <name>HSV</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\HSV</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="20">
+        <description><![CDATA[HSV represents the HSV color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="20" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="27" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$h</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="33" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$s</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="39" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$v</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="48" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="48">
+          <description><![CDATA[Create a new HSV color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="param" description="The hue (0-1)" type="float" variable="$h">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The saturation (0-1)" type="float" variable="$s">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The value (0-1)" type="float" variable="$v">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$h</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$s</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$v</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="61" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="61">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="61" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="71" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="71">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="71" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="125" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="125">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="125" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="135" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="135">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="135" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="145" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="145">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="145" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="155" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="155">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="155" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="165" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="165">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="165" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="175" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="175">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="175" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="185" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="185">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="185" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="195" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="195">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="195" name="return" description="The color in format: $h,$s,$v" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="27" code="50018">No DocBlock was found for property $h</error>
+      <error line="33" code="50018">No DocBlock was found for property $s</error>
+      <error line="39" code="50018">No DocBlock was found for property $v</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\RGB.php" hash="5a34c37f4e2dfd69cdeed0ccc6eac1cc" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <namespace-alias name="InvalidArgumentException">MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="21" package="Default">
+      <name>RGB</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\RGB</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="21">
+        <description><![CDATA[RGB represents the RGB color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="21" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="28" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$r</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="34" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$g</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="40" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$b</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="49" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="49">
+          <description><![CDATA[Create a new RGB color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="49" name="param" description="The red (0-255)" type="float" variable="$r">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="49" name="param" description="The green (0-255)" type="float" variable="$g">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="49" name="param" description="The blue (0-255)" type="float" variable="$b">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="49">
+          <name>$r</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="49">
+          <name>$g</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="49">
+          <name>$b</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="73" package="Default">
+        <name>getR</name>
+        <full_name>getR</full_name>
+        <docblock line="73">
+          <description><![CDATA[Get the red value (rounded)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="73" name="return" description="The red value" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="83" package="Default">
+        <name>getG</name>
+        <full_name>getG</full_name>
+        <docblock line="83">
+          <description><![CDATA[Get the green value (rounded)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="83" name="return" description="The green value" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="93" package="Default">
+        <name>getB</name>
+        <full_name>getB</full_name>
+        <docblock line="93">
+          <description><![CDATA[Get the blue value (rounded)]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="93" name="return" description="The blue value" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="103" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="103">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="103" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="113" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="113">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="113" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="123" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="123">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="123" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="157" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="157">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="157" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="167" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="167">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="167" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="210" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="210">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="210" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="223" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="223">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="223" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="233" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="233">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="233" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="243" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="243">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="243" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="253" package="Default">
+        <name>toString</name>
+        <full_name>toString</full_name>
+        <docblock line="253">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="253" name="return" description="The color in format: $r,$g,$b (rounded)" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="28" code="50018">No DocBlock was found for property $r</error>
+      <error line="34" code="50018">No DocBlock was found for property $g</error>
+      <error line="40" code="50018">No DocBlock was found for property $b</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\XYZ.php" hash="ad39d8bcb483e7b25c3b907be9c3a5e6" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="20" package="Default">
+      <name>XYZ</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\XYZ</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="20">
+        <description><![CDATA[XYZ represents the XYZ color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="20" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="27" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$x</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="33" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$y</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="39" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$z</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="48" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="48">
+          <description><![CDATA[Create a new XYZ color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="param" description="The x dimension" type="float" variable="$x">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The y dimension" type="float" variable="$y">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The z dimension" type="float" variable="$z">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$x</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$y</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$z</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="61" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="61">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="61" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="71" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="71">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="71" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="107" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="107">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="107" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="117" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="117">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="117" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="130" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="130">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="130" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="140" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="140">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="140" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="150" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="150">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="150" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="160" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="160">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="160" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="201" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="201">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="201" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="211" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="211">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="211" name="return" description="The color in format: $x,$y,$z" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="27" code="50018">No DocBlock was found for property $x</error>
+      <error line="33" code="50018">No DocBlock was found for property $y</error>
+      <error line="39" code="50018">No DocBlock was found for property $z</error>
+    </parse_markers>
+  </file>
+  <file path="Formats\Yxy.php" hash="cbae98ea221dd5ab105cec867a9d1cd5" package="Default">
+    <namespace-alias name="ColorJizz">MischiefCollective\ColorJizz\ColorJizz</namespace-alias>
+    <class final="false" abstract="false" namespace="MischiefCollective\ColorJizz\Formats" line="20" package="Default">
+      <name>Yxy</name>
+      <full_name>\MischiefCollective\ColorJizz\Formats\Yxy</full_name>
+      <extends>MischiefCollective\ColorJizz\ColorJizz</extends>
+      <docblock line="20">
+        <description><![CDATA[Yxy represents the Yxy color format]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="20" name="author" description="Mikee Franklin &lt;mikee@mischiefcollective.com&gt;"/>
+      </docblock>
+      <property final="false" static="false" visibility="public" line="27" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$Y</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="33" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$x</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="39" namespace="MischiefCollective\ColorJizz\Formats" package="Default">
+        <name>$y</name>
+        <default><![CDATA[]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="48" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="48">
+          <description><![CDATA[Create a new Yxy color]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="param" description="The Y" type="float" variable="$Y">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The x" type="float" variable="$x">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="48" name="param" description="The y" type="float" variable="$y">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$Y</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$x</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="48">
+          <name>$y</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="61" package="Default">
+        <name>toHex</name>
+        <full_name>toHex</full_name>
+        <docblock line="61">
+          <description><![CDATA[Convert the color to Hex format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="61" name="return" description="the color in Hex format" type="\MischiefCollective\ColorJizz\Formats\Hex">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Hex</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="71" package="Default">
+        <name>toRGB</name>
+        <full_name>toRGB</full_name>
+        <docblock line="71">
+          <description><![CDATA[Convert the color to RGB format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="71" name="return" description="the color in RGB format" type="\MischiefCollective\ColorJizz\Formats\RGB">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\RGB</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="81" package="Default">
+        <name>toXYZ</name>
+        <full_name>toXYZ</full_name>
+        <docblock line="81">
+          <description><![CDATA[Convert the color to XYZ format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="81" name="return" description="the color in XYZ format" type="\MischiefCollective\ColorJizz\Formats\XYZ">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\XYZ</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="94" package="Default">
+        <name>toYxy</name>
+        <full_name>toYxy</full_name>
+        <docblock line="94">
+          <description><![CDATA[Convert the color to Yxy format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="94" name="return" description="the color in Yxy format" type="\MischiefCollective\ColorJizz\Formats\Yxy">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\Yxy</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="104" package="Default">
+        <name>toHSV</name>
+        <full_name>toHSV</full_name>
+        <docblock line="104">
+          <description><![CDATA[Convert the color to HSV format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="104" name="return" description="the color in HSV format" type="\MischiefCollective\ColorJizz\Formats\HSV">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\HSV</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="114" package="Default">
+        <name>toCMY</name>
+        <full_name>toCMY</full_name>
+        <docblock line="114">
+          <description><![CDATA[Convert the color to CMY format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="114" name="return" description="the color in CMY format" type="\MischiefCollective\ColorJizz\Formats\CMY">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMY</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="124" package="Default">
+        <name>toCMYK</name>
+        <full_name>toCMYK</full_name>
+        <docblock line="124">
+          <description><![CDATA[Convert the color to CMYK format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="124" name="return" description="the color in CMYK format" type="\MischiefCollective\ColorJizz\Formats\CMYK">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CMYK</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="134" package="Default">
+        <name>toCIELab</name>
+        <full_name>toCIELab</full_name>
+        <docblock line="134">
+          <description><![CDATA[Convert the color to CIELab format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="134" name="return" description="the color in CIELab format" type="\MischiefCollective\ColorJizz\Formats\CIELab">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELab</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="144" package="Default">
+        <name>toCIELCh</name>
+        <full_name>toCIELCh</full_name>
+        <docblock line="144">
+          <description><![CDATA[Convert the color to CIELCh format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="144" name="return" description="the color in CIELCh format" type="\MischiefCollective\ColorJizz\Formats\CIELCh">
+            <type by_reference="false">\MischiefCollective\ColorJizz\Formats\CIELCh</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="MischiefCollective\ColorJizz\Formats" line="154" package="Default">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="154">
+          <description><![CDATA[A string representation of this color in the current format]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="154" name="return" description="The color in format: $Y,$x,$y" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="27" code="50018">No DocBlock was found for property $Y</error>
+      <error line="33" code="50018">No DocBlock was found for property $x</error>
+      <error line="39" code="50018">No DocBlock was found for property $y</error>
+    </parse_markers>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <namespace name="MischiefCollective" full_name="MischiefCollective">
+    <namespace name="ColorJizz" full_name="MischiefCollective\ColorJizz">
+      <namespace name="Exceptions" full_name="MischiefCollective\ColorJizz\Exceptions"/>
+      <namespace name="Formats" full_name="MischiefCollective\ColorJizz\Formats"/>
+    </namespace>
+  </namespace>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

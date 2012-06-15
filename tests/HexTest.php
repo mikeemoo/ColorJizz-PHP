@@ -2,7 +2,8 @@
 
 namespace MischiefCollective\ColorJizz\Tests;
 
-use MischiefCollective\ColorJizz\Formats\Hex;
+use MischiefCollective\ColorJizz\Formats\Hex,
+    MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 class HexTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,6 +29,29 @@ class HexTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals(0x000000, Hex::fromString('BLAck')->hex);
       $this->assertEquals(0xFF0000, Hex::fromString('red')->hex);
 
+    }
+
+    public function testFromStringExceptions()
+    {
+      $terms = array(
+        'broken',
+        '#0FW',
+        'saf0sddasd',
+        '0assaaaa',
+        'black-',
+      );
+
+      foreach ($terms as $term) {
+        $exception = false;
+        try {
+          Hex::fromString($term);
+        } catch (InvalidArgumentException $exception) {
+          $exception = true;
+        }
+        if (!$exception) {
+          $this->fail(sprintf('No exception thrown using fromString(\'%s\')', $term));
+        }
+      }
     }
 
     public function testToString()
