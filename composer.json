@@ -1,6 +1,6 @@
 {
     "name": "MischiefCollective/ColorJizz",
-    "require": {}
+    "require": {},
     "autoload": {
         "psr-0": {
             "MischiefCollective": "lib"
