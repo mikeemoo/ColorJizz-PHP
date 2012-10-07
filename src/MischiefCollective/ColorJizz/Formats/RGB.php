@@ -25,19 +25,19 @@ class RGB extends ColorJizz
      * The red value (0-255)
      * @var float
      */
-    public $r;
+    public $red;
 
     /**
      * The green value (0-255)
      * @var float
      */
-    public $g;
+    public $green;
 
     /**
      * The blue value (0-255)
      * @var float
      */
-    public $b;
+    public $blue;
 
     /**
      * Create a new RGB color
@@ -46,23 +46,23 @@ class RGB extends ColorJizz
      * @param float $g The green (0-255)
      * @param float $b The blue (0-255)
      */
-    public function __construct($r, $g, $b)
+    public function __construct($red, $green, $blue)
     {
         $this->toSelf = "toRGB";
 
-        if ($r < 0 || $r > 255) {
-            throw new InvalidArgumentException(sprintf('Parameter r out of range (%s)', $r));
+        if ($red < 0 || $red > 255) {
+            throw new InvalidArgumentException(sprintf('Parameter red out of range (%s)', $red));
         }
-        if ($g < 0 || $g > 255) {
-            throw new InvalidArgumentException(sprintf('Parameter g out of range (%s)', $g));
+        if ($green < 0 || $green > 255) {
+            throw new InvalidArgumentException(sprintf('Parameter green out of range (%s)', $green));
         }
-        if ($b < 0 || $b > 255) {
-            throw new InvalidArgumentException(sprintf('Parameter b out of range (%s)', $b));
+        if ($blue < 0 || $blue > 255) {
+            throw new InvalidArgumentException(sprintf('Parameter blue out of range (%s)', $blue));
         }
 
-        $this->r = $r;
-        $this->g = $g;
-        $this->b = $b;
+        $this->red = $red;
+        $this->green = $green;
+        $this->blue = $blue;
     }
 
     /**
@@ -70,9 +70,9 @@ class RGB extends ColorJizz
      *
      * @return int The red value
      */
-    public function getR()
+    public function getRed()
     {
-        return (0.5 + $this->r) | 0;
+        return (0.5 + $this->red) | 0;
     }
 
     /**
@@ -80,9 +80,9 @@ class RGB extends ColorJizz
      *
      * @return int The green value
      */
-    public function getG()
+    public function getGreen()
     {
-        return (0.5 + $this->g) | 0;
+        return (0.5 + $this->green) | 0;
     }
 
     /**
@@ -90,9 +90,9 @@ class RGB extends ColorJizz
      *
      * @return int The blue value
      */
-    public function getB()
+    public function getBlue()
     {
-        return (0.5 + $this->b) | 0;
+        return (0.5 + $this->blue) | 0;
     }
 
     /**
@@ -102,7 +102,7 @@ class RGB extends ColorJizz
      */
     public function toHex()
     {
-        return new Hex($this->getR() << 16 | $this->getG() << 8 | $this->getB());
+        return new Hex($this->getRed() << 16 | $this->getGreen() << 8 | $this->getBlue());
     }
 
     /**
@@ -122,9 +122,9 @@ class RGB extends ColorJizz
      */
     public function toXYZ()
     {
-        $tmp_r = $this->r / 255;
-        $tmp_g = $this->g / 255;
-        $tmp_b = $this->b / 255;
+        $tmp_r = $this->red / 255;
+        $tmp_g = $this->green / 255;
+        $tmp_b = $this->blue / 255;
         if ($tmp_r > 0.04045) {
             $tmp_r = pow((($tmp_r + 0.055) / 1.055), 2.4);
         } else {
@@ -143,10 +143,10 @@ class RGB extends ColorJizz
         $tmp_r = $tmp_r * 100;
         $tmp_g = $tmp_g * 100;
         $tmp_b = $tmp_b * 100;
-        $x = $tmp_r * 0.4124 + $tmp_g * 0.3576 + $tmp_b * 0.1805;
-        $y = $tmp_r * 0.2126 + $tmp_g * 0.7152 + $tmp_b * 0.0722;
-        $z = $tmp_r * 0.0193 + $tmp_g * 0.1192 + $tmp_b * 0.9505;
-        return new XYZ($x, $y, $z);
+        $new_x = $tmp_r * 0.4124 + $tmp_g * 0.3576 + $tmp_b * 0.1805;
+        $new_y = $tmp_r * 0.2126 + $tmp_g * 0.7152 + $tmp_b * 0.0722;
+        $new_z = $tmp_r * 0.0193 + $tmp_g * 0.1192 + $tmp_b * 0.9505;
+        return new XYZ($new_x, $new_y, $new_z);
     }
 
     /**
@@ -166,42 +166,45 @@ class RGB extends ColorJizz
      */
     public function toHSV()
     {
-        $r = $this->r / 255;
-        $g = $this->g / 255;
-        $b = $this->b / 255;
+        $red = $this->red / 255;
+        $green = $this->green / 255;
+        $blue = $this->blue / 255;
 
 
-        $min = min($r, $g, $b);
-        $max = max($r, $g, $b);
+        $min = min($red, $green, $blue);
+        $max = max($red, $green, $blue);
 
-        $v = $max;
+        $value = $max;
         $delta = $max - $min;
 
         if ($delta == 0) {
-            return new HSV(0, 0, $v * 100);
+            return new HSV(0, 0, $value * 100);
         }
+        
+        $saturation = 0;
+        
         if ($max != 0) {
-            $s = $delta / $max;
+            $saturation = $delta / $max;
         } else {
-            $s = 0;
-            $h = -1;
-            return new HSV($h, $s, $v);
+            $saturation = 0;
+            $hue = -1;
+            return new HSV($hue, $saturation, $value);
         }
-        if ($r == $max) {
-            $h = ($g - $b) / $delta;
+        if ($red == $max) {
+            $hue = ($green - $blue) / $delta;
         } else {
-            if ($g == $max) {
-                $h = 2 + ($b - $r) / $delta;
+            if ($green == $max) {
+                $hue = 2 + ($blue - $red) / $delta;
             } else {
-                $h = 4 + ($r - $g) / $delta;
+                $hue = 4 + ($red - $green) / $delta;
             }
         }
-        $h *= 60;
-        if ($h < 0) {
-            $h += 360;
+        $hue *= 60;
+        if ($hue < 0) {
+            $hue += 360;
         }
 
-        return new HSV($h, $s * 100, $v * 100);
+        return new HSV($hue, $saturation * 100, $value * 100);
     }
 
     /**
@@ -211,10 +214,10 @@ class RGB extends ColorJizz
      */
     public function toCMY()
     {
-        $C = 1 - ($this->r / 255);
-        $M = 1 - ($this->g / 255);
-        $Y = 1 - ($this->b / 255);
-        return new CMY($C, $M, $Y);
+        $cyan = 1 - ($this->red / 255);
+        $magenta = 1 - ($this->green / 255);
+        $yellow = 1 - ($this->blue / 255);
+        return new CMY($cyan, $magenta, $yellow);
     }
 
     /**
@@ -250,10 +253,10 @@ class RGB extends ColorJizz
     /**
      * A string representation of this color in the current format
      *
-     * @return string The color in format: $r,$g,$b (rounded)
+     * @return string The color in format: $red,$green,$blue (rounded)
      */
     public function toString()
     {
-        return $this->getR() . ',' . $this->getG() . ',' . $this->getB();
+        return $this->getRed() . ',' . $this->getGreen() . ',' . $this->getBlue();
     }
 }

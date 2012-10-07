@@ -24,33 +24,33 @@ class HSV extends ColorJizz
      * The hue
      * @var float
      */
-    public $h;
+    public $hue;
 
     /**
      * The saturation
      * @var float
      */
-    public $s;
+    public $saturation;
 
     /**
      * The value
      * @var float
      */
-    public $v;
+    public $value;
 
     /**
      * Create a new HSV color
      *
-     * @param float $h The hue (0-1)
-     * @param float $s The saturation (0-1)
-     * @param float $v The value (0-1)
+     * @param float $hue The hue (0-1)
+     * @param float $saturation The saturation (0-1)
+     * @param float $value The value (0-1)
      */
-    public function __construct($h, $s, $v)
+    public function __construct($hue, $saturation, $value)
     {
         $this->toSelf = "toHSV";
-        $this->h = $h;
-        $this->s = $s;
-        $this->v = $v;
+        $this->hue = $hue;
+        $this->saturation = $saturation;
+        $this->value = $value;
     }
 
     /**
@@ -70,53 +70,53 @@ class HSV extends ColorJizz
      */
     public function toRGB()
     {
-        $h = $this->h / 360;
-        $s = $this->s / 100;
-        $v = $this->v / 100;
-        if ($s == 0) {
-            $r = $v * 255;
-            $g = $v * 255;
-            $b = $v * 255;
+        $hue = $this->hue / 360;
+        $saturation = $this->saturation / 100;
+        $value = $this->value / 100;
+        if ($saturation == 0) {
+            $red = $value * 255;
+            $green = $value * 255;
+            $blue = $value * 255;
         } else {
-            $var_h = $h * 6;
+            $var_h = $hue * 6;
             $var_i = floor($var_h);
-            $var_1 = $v * (1 - $s);
-            $var_2 = $v * (1 - $s * ($var_h - $var_i));
-            $var_3 = $v * (1 - $s * (1 - ($var_h - $var_i)));
+            $var_1 = $value * (1 - $saturation);
+            $var_2 = $value * (1 - $saturation * ($var_h - $var_i));
+            $var_3 = $value * (1 - $saturation * (1 - ($var_h - $var_i)));
 
             if ($var_i == 0) {
-                $var_r = $v;
+                $var_r = $value;
                 $var_g = $var_3;
                 $var_b = $var_1;
             } elseif ($var_i == 1) {
                 $var_r = $var_2;
-                $var_g = $v;
+                $var_g = $value;
                 $var_b = $var_1;
             } elseif ($var_i == 2) {
                 $var_r = $var_1;
-                $var_g = $v;
+                $var_g = $value;
                 $var_b = $var_3;
             } elseif ($var_i == 3) {
                 $var_r = $var_1;
                 $var_g = $var_2;
-                $var_b = $v;
+                $var_b = $value;
             } else {
                 if ($var_i == 4) {
                     $var_r = $var_3;
                     $var_g = $var_1;
-                    $var_b = $v;
+                    $var_b = $value;
                 } else {
-                    $var_r = $v;
+                    $var_r = $value;
                     $var_g = $var_1;
                     $var_b = $var_2;
                 }
             }
 
-            $r = $var_r * 255;
-            $g = $var_g * 255;
-            $b = $var_b * 255;
+            $red = $var_r * 255;
+            $green = $var_g * 255;
+            $blue = $var_b * 255;
         }
-        return new RGB($r, $g, $b);
+        return new RGB($red, $green, $blue);
     }
 
     /**
@@ -192,10 +192,10 @@ class HSV extends ColorJizz
     /**
      * A string representation of this color in the current format
      *
-     * @return string The color in format: $h,$s,$v
+     * @return string The color in format: $hue,$saturation,$value
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->h, $this->s, $this->v);
+        return sprintf('%s,%s,%s', $this->hue, $this->saturation, $this->value);
     }
 }

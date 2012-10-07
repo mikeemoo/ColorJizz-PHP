@@ -383,9 +383,9 @@ class Hex extends ColorJizz
     public function __toString()
     {
         $rgb = $this->toRGB();
-        $hex = str_pad(dechex($rgb->r), 2, "0", STR_PAD_LEFT);
-        $hex .= str_pad(dechex($rgb->g), 2, "0", STR_PAD_LEFT);
-        $hex .= str_pad(dechex($rgb->b), 2, "0", STR_PAD_LEFT);
+        $hex = str_pad(dechex($rgb->getRed()), 2, "0", STR_PAD_LEFT);
+        $hex .= str_pad(dechex($rgb->getGreen()), 2, "0", STR_PAD_LEFT);
+        $hex .= str_pad(dechex($rgb->getBlue()), 2, "0", STR_PAD_LEFT);
         return strtoupper($hex);
     }
 
