@@ -156,4 +156,3 @@ class Yxy extends ColorJizz
         return sprintf('%s,%s,%s', $this->Y, $this->x, $this->y);
     }
 }
-

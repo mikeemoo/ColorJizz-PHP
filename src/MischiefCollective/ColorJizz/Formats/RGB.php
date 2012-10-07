@@ -258,4 +258,3 @@ class RGB extends ColorJizz
     }
 }
 
-

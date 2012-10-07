@@ -213,4 +213,3 @@ class XYZ extends ColorJizz
         return sprintf('%s,%s,%s', $this->x, $this->y, $this->z);
     }
 }
-
