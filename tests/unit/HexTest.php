@@ -73,7 +73,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     public function testToRGBAndBack()
     {
-      for ($i=0; $i<=0xFFFFFF; $i+=0x0004B5)
+      for ($i=0; $i<=0xFFFFFF; $i+=0x0CCCCC)
       {
         $this->assertEquals($i, Hex::create($i)->toRGB()->toHex()->hex);
       }
@@ -81,7 +81,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     public function testToXYZAndBack()
     {
-      for ($i=0; $i<=0xFFFFFF; $i+=0x0004B5)
+      for ($i=0; $i<=0xFFFFFF; $i+=0x0CCCCC)
       {
         $this->assertEquals($i, Hex::create($i)->toXYZ()->toHex()->hex);
       }
@@ -89,7 +89,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     public function testToCMYAndBack()
     {
-      for ($i=0; $i<=0xFFFFFF; $i+=0x0004B5)
+      for ($i=0; $i<=0xFFFFFF; $i+=0x0CCCCC)
       {
         $this->assertEquals($i, Hex::create($i)->toCMY()->toHex()->hex);
       }
@@ -97,7 +97,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     public function testToCMYKAndBack()
     {
-      for ($i=0; $i<=0xFFFFFF; $i+=0x0004B5)
+      for ($i=0; $i<=0xFFFFFF; $i+=0x0CCCCC)
       {
         $this->assertEquals($i, Hex::create($i)->toCMYK()->toHex()->hex);
       }
@@ -105,7 +105,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     public function testToYxyAndBack()
     {
-      for ($i=0; $i<=0xFFFFFF; $i+=0x0004B5)
+      for ($i=0; $i<=0xFFFFFF; $i+=0x0CCCCC)
       {
         $this->assertEquals($i, Hex::create($i)->toYxy()->toHex()->hex);
       }
@@ -113,7 +113,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     public function testToCIELabAndBack()
     {
-      for ($i=0; $i<=0xFFFFFF; $i+=0x0004B5)
+      for ($i=0; $i<=0xFFFFFF; $i+=0x0CCCCC)
       {
         $this->assertEquals($i, Hex::create($i)->toCIELab()->toHex()->hex);
       }
@@ -121,7 +121,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     public function testToCIELChAndBack()
     {
-      for ($i=0; $i<=0xFFFFFF; $i+=0x0004B5)
+      for ($i=0; $i<=0xFFFFFF; $i+=0x0CCCCC)
       {
         $this->assertEquals($i, Hex::create($i)->toCIELCh()->toHex()->hex);
       }
@@ -129,7 +129,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     public function testToHSVAndBack()
     {
-      for ($i=0; $i<=0xFFFFFF; $i+=0x0004B5)
+      for ($i=0; $i<=0xFFFFFF; $i+=0x0CCCCC)
       {
         $this->assertEquals($i, Hex::create($i)->toHSV()->toHex()->hex);
       }
