@@ -110,16 +110,18 @@ abstract class ColorJizz
      */
     public function websafe()
     {
-        $c = array('00', 'CC', '33', '66', '99', 'FF');
+        
         $palette = array();
-        for ($i = 0; $i < 6; $i++) {
-            for ($j = 0; $j < 6; $j++) {
-                for ($k = 0; $k < 6; $k++) {
-                    $palette[] = new Hex($c[$i] + $c[$j] + $c[$k]);
+        
+        for ($r = 0; $r <= 255; $r += 51) {
+            for ($g = 0; $g <= 255; $g += 51) {
+                for ($b = 0; $b <= 255; $b += 51) {
+                    $palette[] = new RGB($r, $g, $b);
                 }
             }
         }
-        return $this->match($palette);
+        
+        return $this->match($palette);    
     }
 
     /**
