@@ -32,7 +32,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException
      */
     public function testInvalidColorNameException()
     {
@@ -40,7 +40,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException
      */
     public function testInvalidHexValueException()
     {
@@ -49,7 +49,7 @@ class HexTest extends \PHPUnit_Framework_TestCase
     
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException
      */
     public function testMalformedHexValueException()
     {
