@@ -31,29 +31,31 @@ class HexTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function testFromStringExceptions()
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testInvalidColorNameException()
     {
-      $terms = array(
-        'broken',
-        '#0FW',
-        'saf0sddasd',
-        '0assaaaa',
-        'black-',
-      );
-
-      foreach ($terms as $term) {
-        $exception = false;
-        try {
-          Hex::fromString($term);
-        } catch (InvalidArgumentException $exception) {
-          $exception = true;
-        }
-        if (!$exception) {
-          $this->fail(sprintf('No exception thrown using fromString(\'%s\')', $term));
-        }
-      }
+      Hex::fromString('black-');
     }
 
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testInvalidHexValueException()
+    {
+      Hex::fromString('#0FW');
+    }
+    
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testMalformedHexValueException()
+    {
+      Hex::fromString('# 0FW');
+    }    
+    
     public function testToString()
     {
       $this->assertEquals('DACDD3', Hex::create(0xDACDD3)->__toString());
