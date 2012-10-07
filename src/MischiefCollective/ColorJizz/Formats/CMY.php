@@ -132,14 +132,15 @@ class CMY extends ColorJizz
         $C = $this->c;
         $M = $this->m;
         $Y = $this->y;
-        if ($C < $var_K)
-                {
-                    $var_K = $C;
-                }
-        if ($M < $var_K)
+        if ($C < $var_K) {
+            $var_K = $C;
+        }
+        if ($M < $var_K) {
             $var_K = $M;
-        if ($Y < $var_K)
+        }
+        if ($Y < $var_K) {
             $var_K = $Y;
+        }
         if ($var_K == 1) {
             $C = 0;
             $M = 0;
@@ -184,5 +185,4 @@ class CMY extends ColorJizz
     {
         return sprintf('%s,%s,%s', $this->c, $this->m, $this->y);
     }
-
 }

@@ -195,6 +195,4 @@ class CIELab extends ColorJizz
     {
         return sprintf('%s,%s,%s', $this->l, $this->a, $this->b);
     }
-
 }
-

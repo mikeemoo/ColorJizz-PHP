@@ -9,10 +9,10 @@
 
 namespace MischiefCollective\ColorJizz;
 
-use MischiefCollective\ColorJizz\Formats\HSV,
-    MischiefCollective\ColorJizz\Formats\CIELCh,
-    MischiefCollective\ColorJizz\Formats\RGB,
-    MischiefCollective\ColorJizz\Formats\Hex;
+use MischiefCollective\ColorJizz\Formats\HSV;
+use MischiefCollective\ColorJizz\Formats\CIELCh;
+use MischiefCollective\ColorJizz\Formats\RGB;
+use MischiefCollective\ColorJizz\Formats\Hex;
 
 /**
  * ColorJizz is the base class that all color objects extend
@@ -320,5 +320,4 @@ abstract class ColorJizz
         $a->l += $brightnessModifier;
         return call_user_func(array($a, $this->toSelf));
     }
-
 }

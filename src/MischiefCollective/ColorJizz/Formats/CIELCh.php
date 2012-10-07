@@ -159,5 +159,4 @@ class CIELCh extends ColorJizz
     {
         return sprintf('%s,%s,%s', $this->l, $this->c, $this->h);
     }
-
 }

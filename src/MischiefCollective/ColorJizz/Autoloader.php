@@ -18,12 +18,12 @@ namespace MischiefCollective\ColorJizz;
 class Autoloader
 {
 
-    static public function register()
+    public static function register()
     {
         spl_autoload_register(array(new self, 'autoload'));
     }
 
-    static public function autoload($class)
+    public static function autoload($class)
     {
         if (0 !== strpos($class, 'MischiefCollective\\ColorJizz')) {
             return;
@@ -36,5 +36,4 @@ class Autoloader
             require $file;
         }
     }
-
 }
