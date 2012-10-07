@@ -3,20 +3,20 @@
 /*
  * This file is part of the ColorJizz package.
  *
- * (c) Mikee Franklin <mikee@mischiefcollective.com>
+ * (c) Mikee Franklin <mikeefranklin@gmail.com>
  *
  */
 
 namespace MischiefCollective\ColorJizz\Formats;
 
-use MischiefCollective\ColorJizz\ColorJizz,
-    MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
+use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * RGB represents the RGB color format
  *
  *
- * @author Mikee Franklin <mikee@mischiefcollective.com>
+ * @author Mikee Franklin <mikeefranklin@gmail.com>
  */
 class RGB extends ColorJizz
 {
@@ -256,6 +256,6 @@ class RGB extends ColorJizz
     {
         return $this->getR() . ',' . $this->getG() . ',' . $this->getB();
     }
-
 }
+
 

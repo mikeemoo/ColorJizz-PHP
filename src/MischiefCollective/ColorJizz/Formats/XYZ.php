@@ -3,7 +3,7 @@
 /*
  * This file is part of the ColorJizz package.
  *
- * (c) Mikee Franklin <mikee@mischiefcollective.com>
+ * (c) Mikee Franklin <mikeefranklin@gmail.com>
  *
  */
 
@@ -15,7 +15,7 @@ use MischiefCollective\ColorJizz\ColorJizz;
  * XYZ represents the XYZ color format
  *
  *
- * @author Mikee Franklin <mikee@mischiefcollective.com>
+ * @author Mikee Franklin <mikeefranklin@gmail.com>
  */
 class XYZ extends ColorJizz
 {
@@ -212,5 +212,5 @@ class XYZ extends ColorJizz
     {
         return sprintf('%s,%s,%s', $this->x, $this->y, $this->z);
     }
-
 }
+

@@ -3,7 +3,7 @@
 /*
  * This file is part of the ColorJizz package.
  *
- * (c) Mikee Franklin <mikee@mischiefcollective.com>
+ * (c) Mikee Franklin <mikeefranklin@gmail.com>
  *
  */
 
@@ -15,7 +15,7 @@ use MischiefCollective\ColorJizz\ColorJizz;
  * CMYK represents the CMYK color format
  *
  *
- * @author Mikee Franklin <mikee@mischiefcollective.com>
+ * @author Mikee Franklin <mikeefranklin@gmail.com>
  */
 class CMYK extends ColorJizz
 {
@@ -168,5 +168,4 @@ class CMYK extends ColorJizz
     {
         return sprintf('%s,%s,%s,%s', $this->c, $this->m, $this->y, $this->k);
     }
-
 }
