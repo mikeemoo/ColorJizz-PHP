@@ -24,39 +24,73 @@ class CMY extends ColorJizz
      * The cyan
      * @var float
      */
-    public $c;
+    private $cyan;
 
     /**
      * The magenta
      * @var float
      */
-    public $m;
+    private $magenta;
 
     /**
      * The yellow
      * @var float
      */
-    public $y;
+    private $yellow;
 
     /**
      * Create a new CIELab color
      *
-     * @param float $c The cyan
-     * @param float $m The magenta
-     * @param float $y The yellow
+     * @param float $cyan The cyan
+     * @param float $magenta The magenta
+     * @param float $yellow The yellow
      */
-    public function __construct($c, $m, $y)
+    public function __construct($cyan, $magenta, $yellow)
     {
         $this->toSelf = "toCMY";
-        $this->c = $c;
-        $this->m = $m;
-        $this->y = $y;
+        $this->cyan = $cyan;
+        $this->magenta = $magenta;
+        $this->yellow = $yellow;
     }
 
-    public static function create($c, $m, $y)
+    public static function create($cyan, $magenta, $yellow)
     {
-        return new CMY($c, $m, $y);
+        return new CMY($cyan, $magenta, $yellow);
     }
+
+   
+    /**
+     * Get the amount of Cyan
+     *
+     * @return int The amount of cyan
+     */
+    public function getCyan()
+    {
+      return $this->cyan;
+    }
+
+    
+    /**
+     * Get the amount of Magenta
+     *
+     * @return int The amount of magenta
+     */
+    public function getMagenta()
+    {
+      return $this->magenta;
+    }
+    
+    
+    /**
+     * Get the amount of Yellow
+     *
+     * @return int The amount of yellow
+     */
+    public function getYellow()
+    {
+      return $this->yellow;
+    }
+    
 
     /**
      * Convert the color to Hex format
@@ -75,10 +109,10 @@ class CMY extends ColorJizz
      */
     public function toRGB()
     {
-        $r = (1 - $this->c) * 255;
-        $g = (1 - $this->m) * 255;
-        $b = (1 - $this->y) * 255;
-        return new RGB($r, $g, $b);
+        $red = (1 - $this->cyan) * 255;
+        $green = (1 - $this->magenta) * 255;
+        $blue = (1 - $this->yellow) * 255;
+        return new RGB($red, $green, $blue);
     }
 
     /**
@@ -129,31 +163,31 @@ class CMY extends ColorJizz
     public function toCMYK()
     {
         $var_K = 1;
-        $C = $this->c;
-        $M = $this->m;
-        $Y = $this->y;
-        if ($C < $var_K) {
-            $var_K = $C;
+        $cyan = $this->cyan;
+        $magenta = $this->magenta;
+        $yellow = $this->yellow;
+        if ($cyan < $var_K) {
+            $var_K = $cyan;
         }
-        if ($M < $var_K) {
-            $var_K = $M;
+        if ($magenta < $var_K) {
+            $var_K = $magenta;
         }
-        if ($Y < $var_K) {
-            $var_K = $Y;
+        if ($yellow < $var_K) {
+            $var_K = $yellow;
         }
         if ($var_K == 1) {
-            $C = 0;
-            $M = 0;
-            $Y = 0;
+            $cyan = 0;
+            $magenta = 0;
+            $yellow = 0;
         } else {
-            $C = ($C - $var_K) / (1 - $var_K);
-            $M = ($M - $var_K) / (1 - $var_K);
-            $Y = ($Y - $var_K) / (1 - $var_K);
+            $cyan = ($cyan - $var_K) / (1 - $var_K);
+            $magenta = ($magenta - $var_K) / (1 - $var_K);
+            $yellow = ($yellow - $var_K) / (1 - $var_K);
         }
 
-        $K = $var_K;
+        $key = $var_K;
 
-        return new CMYK($C, $M, $Y, $K);
+        return new CMYK($cyan, $magenta, $yellow, $key);
     }
 
     /**
@@ -179,10 +213,10 @@ class CMY extends ColorJizz
     /**
      * A string representation of this color in the current format
      *
-     * @return string The color in format: $c,$m,$y
+     * @return string The color in format: $cyan,$magenta,$yellow
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->c, $this->m, $this->y);
+        return sprintf('%s,%s,%s', $this->cyan, $this->magenta, $this->yellow);
     }
 }

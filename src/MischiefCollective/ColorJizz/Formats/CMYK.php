@@ -24,47 +24,90 @@ class CMYK extends ColorJizz
      * The cyan
      * @var float
      */
-    public $c;
+    private $cyan;
 
     /**
      * The magenta
      * @var float
      */
-    public $m;
+    private $magenta;
 
     /**
      * The yellow
      * @var float
      */
-    public $y;
+    private $yellow;
 
     /**
      * The key (black)
      * @var float
      */
-    public $k;
+    private $key;
 
     /**
      * Create a new CMYK color
      *
-     * @param float $c The cyan
-     * @param float $m The magenta
-     * @param float $y The yellow
-     * @param float $k The key (black)
+     * @param float $cyan The cyan
+     * @param float $magenta The magenta
+     * @param float $yellow The yellow
+     * @param float $key The key (black)
      */
-    public function __construct($c, $m, $y, $k)
+    public function __construct($cyan, $magenta, $yellow, $key)
     {
         $this->toSelf = "toCMYK";
-        $this->c = $c;
-        $this->m = $m;
-        $this->y = $y;
-        $this->k = $k;
+        $this->cyan = $cyan;
+        $this->magenta = $magenta;
+        $this->yellow = $yellow;
+        $this->key = $key;
     }
 
-    public static function create($c, $m, $y, $k)
+    public static function create($cyan, $magenta, $yellow, $key)
     {
-        return new CMYK($c, $m, $y, $k);
+        return new CMYK($cyan, $magenta, $yellow, $key);
     }
+    
+    /**
+     * Get the amount of Cyan
+     *
+     * @return int The amount of cyan
+     */
+    public function getCyan()
+    {
+      return $this->cyan;
+    }
+
+    
+    /**
+     * Get the amount of Magenta
+     *
+     * @return int The amount of magenta
+     */
+    public function getMagenta()
+    {
+      return $this->magenta;
+    }
+    
+    
+    /**
+     * Get the amount of Yellow
+     *
+     * @return int The amount of yellow
+     */
+    public function getYellow()
+    {
+      return $this->yellow;
+    }
+    
+    
+    /**
+     * Get the key (black)
+     *
+     * @return int The amount of black
+     */
+    public function getKey()
+    {
+      return $this->key;
+    }    
 
     /**
      * Convert the color to Hex format
@@ -123,10 +166,10 @@ class CMYK extends ColorJizz
      */
     public function toCMY()
     {
-        $C = ($this->c * (1 - $this->k) + $this->k);
-        $M = ($this->m * (1 - $this->k) + $this->k);
-        $Y = ($this->y * (1 - $this->k) + $this->k);
-        return new CMY($C, $M, $Y);
+        $cyan = ($this->cyan * (1 - $this->key) + $this->key);
+        $magenta = ($this->magenta * (1 - $this->key) + $this->key);
+        $yellow = ($this->yellow * (1 - $this->key) + $this->key);
+        return new CMY($cyan, $magenta, $yellow);
     }
 
     /**
@@ -162,10 +205,10 @@ class CMYK extends ColorJizz
     /**
      * A string representation of this color in the current format
      *
-     * @return string The color in format: $c,$m,$y,$k
+     * @return string The color in format: $cyan,$magenta,$yellow,$key
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s,%s', $this->c, $this->m, $this->y, $this->k);
+        return sprintf('%s,%s,%s,%s', $this->cyan, $this->magenta, $this->yellow, $this->key);
     }
 }
