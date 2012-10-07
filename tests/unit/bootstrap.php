@@ -1,5 +1,5 @@
 <?php
 
-require_once __DIR__.'/../../lib/MischiefCollective/ColorJizz/Autoloader.php';
+require_once __DIR__.'/../../src/MischiefCollective/ColorJizz/Autoloader.php';
 MischiefCollective\ColorJizz\Autoloader::register();
 

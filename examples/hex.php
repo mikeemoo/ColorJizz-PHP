@@ -1,6 +1,6 @@
 <?php
 
-require_once '../lib/MischiefCollective/ColorJizz/Autoloader.php';
+require_once '../src/MischiefCollective/ColorJizz/Autoloader.php';
 MischiefCollective\ColorJizz\Autoloader::register();
 
 use MischiefCollective\ColorJizz\Formats\Hex;

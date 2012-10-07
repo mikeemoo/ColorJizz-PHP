@@ -3,7 +3,7 @@
     "require": {},
     "autoload": {
         "psr-0": {
-            "MischiefCollective": "lib"
+            "MischiefCollective": "src"
         }
     }
 }
