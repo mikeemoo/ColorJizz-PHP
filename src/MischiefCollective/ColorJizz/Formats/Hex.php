@@ -254,49 +254,49 @@ class Hex extends ColorJizz
      * @var int
      */
     public $hex;
-    
-   /**
-    * Create a new Hex
-    *
-    * @param int $hex the hexidecimal value (i.e. 0x000000)
-    */
+
+    /**
+     * Create a new Hex
+     *
+     * @param int $hex the hexidecimal value (i.e. 0x000000)
+     */
     public function __construct($hex)
     {
         if ($hex > 0xFFFFFF || $hex < 0) {
-          throw new InvalidArgumentException(sprintf('Parameter hex out of range (%s)', $hex));
+            throw new InvalidArgumentException(sprintf('Parameter hex out of range (%s)', $hex));
         }
 
         $this->hex = $hex;
         $this->toSelf = "toHex";
     }
-    
-   /**
-    * Create a new Hex
-    *
-    * @param int $hex the hexidecimal value (i.e. 0x000000)
-    * 
-    * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
-    */
+
+    /**
+     * Create a new Hex
+     *
+     * @param int $hex the hexidecimal value (i.e. 0x000000)
+     *
+     * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     */
     public static function create($hex)
     {
         return new Hex($hex);
     }
 
-   /**
-    * Convert the color to Hex format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
-    */
+    /**
+     * Convert the color to Hex format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     */
     public function toHex()
     {
         return $this;
     }
 
-   /**
-    * Convert the color to RGB format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
-    */
+    /**
+     * Convert the color to RGB format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
+     */
     public function toRGB()
     {
         $r = (($this->hex & 0xFF0000) >> 16);
@@ -305,97 +305,97 @@ class Hex extends ColorJizz
         return new RGB($r, $g, $b);
     }
 
-   /**
-    * Convert the color to XYZ format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
-    */
+    /**
+     * Convert the color to XYZ format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
+     */
     public function toXYZ()
     {
         return $this->toRGB()->toXYZ();
     }
 
-   /**
-    * Convert the color to Yxy format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
-    */
+    /**
+     * Convert the color to Yxy format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
+     */
     public function toYxy()
     {
         return $this->toRGB()->toXYZ();
     }
 
-   /**
-    * Convert the color to HSV format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
-    */
+    /**
+     * Convert the color to HSV format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
+     */
     public function toHSV()
     {
         return $this->toRGB()->toHSV();
     }
 
-   /**
-    * Convert the color to CMY format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
-    */
+    /**
+     * Convert the color to CMY format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
+     */
     public function toCMY()
     {
         return $this->toRGB()->toCMY();
     }
 
-   /**
-    * Convert the color to CMYK format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
-    */
+    /**
+     * Convert the color to CMYK format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
+     */
     public function toCMYK()
     {
         return $this->toCMY()->toCMYK();
     }
 
-   /**
-    * Convert the color to CIELab format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
-    */
+    /**
+     * Convert the color to CIELab format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
+     */
     public function toCIELab()
     {
         return $this->toXYZ()->toCIELab();
     }
 
-   /**
-    * Convert the color to CIELCh format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
-    */
+    /**
+     * Convert the color to CIELCh format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
+     */
     public function toCIELCh()
     {
         return $this->toCIELab()->toCIELCh();
     }
 
-   /**
-    * A string representation of this color in the current format
-    *
-    * @return string The color in format: RRGGBB
-    */
+    /**
+     * A string representation of this color in the current format
+     *
+     * @return string The color in format: RRGGBB
+     */
     public function __toString()
     {
         $rgb = $this->toRGB();
         $hex = str_pad(dechex($rgb->r), 2, "0", STR_PAD_LEFT);
-        $hex.= str_pad(dechex($rgb->g), 2, "0", STR_PAD_LEFT);
-        $hex.= str_pad(dechex($rgb->b), 2, "0", STR_PAD_LEFT);
+        $hex .= str_pad(dechex($rgb->g), 2, "0", STR_PAD_LEFT);
+        $hex .= str_pad(dechex($rgb->b), 2, "0", STR_PAD_LEFT);
         return strtoupper($hex);
     }
 
-   /**
-    * Create a new Hex from a string.
-    * 
-    * @param string $str Can be a color name or string hex value (i.e. "FFFFFF")
-    *
-    * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
-    */
+    /**
+     * Create a new Hex from a string.
+     *
+     * @param string $str Can be a color name or string hex value (i.e. "FFFFFF")
+     *
+     * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     */
     public static function fromString($str)
     {
         $str = strtolower($str);
@@ -413,7 +413,7 @@ class Hex extends ColorJizz
         }
 
         if (!preg_match('/[0-9A-F]{6}/i', $str)) {
-          throw new InvalidArgumentException(sprintf('Parameter str is an invalid hex string (%s)', $str));
+            throw new InvalidArgumentException(sprintf('Parameter str is an invalid hex string (%s)', $str));
         }
 
         return new Hex(hexdec($str));

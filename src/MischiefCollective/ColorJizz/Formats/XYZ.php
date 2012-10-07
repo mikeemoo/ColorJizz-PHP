@@ -37,14 +37,14 @@ class XYZ extends ColorJizz
      * @var float
      */
     public $z;
-   
-   /**
-    * Create a new XYZ color
-    * 
-    * @param float $x The x dimension
-    * @param float $y The y dimension
-    * @param float $z The z dimension
-    */
+
+    /**
+     * Create a new XYZ color
+     *
+     * @param float $x The x dimension
+     * @param float $y The y dimension
+     * @param float $z The z dimension
+     */
     public function __construct($x, $y, $z)
     {
         $this->toSelf = "toXYZ";
@@ -53,21 +53,21 @@ class XYZ extends ColorJizz
         $this->z = $z;
     }
 
-   /**
-    * Convert the color to Hex format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
-    */
+    /**
+     * Convert the color to Hex format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     */
     public function toHex()
     {
         return $this->toRGB()->toHex();
     }
 
-   /**
-    * Convert the color to RGB format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
-    */
+    /**
+     * Convert the color to RGB format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
+     */
     public function toRGB()
     {
         $var_X = $this->x / 100;
@@ -99,21 +99,21 @@ class XYZ extends ColorJizz
         return new RGB($var_R, $var_G, $var_B);
     }
 
-   /**
-    * Convert the color to XYZ format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
-    */
+    /**
+     * Convert the color to XYZ format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
+     */
     public function toXYZ()
     {
         return $this;
     }
 
-   /**
-    * Convert the color to Yxy format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
-    */
+    /**
+     * Convert the color to Yxy format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
+     */
     public function toYxy()
     {
         $Y = $this->y;
@@ -122,41 +122,41 @@ class XYZ extends ColorJizz
         return new Yxy($Y, $x, $y);
     }
 
-   /**
-    * Convert the color to HSV format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
-    */
+    /**
+     * Convert the color to HSV format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
+     */
     public function toHSV()
     {
         return $this->toRGB()->toHSV();
     }
 
-   /**
-    * Convert the color to CMY format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
-    */
+    /**
+     * Convert the color to CMY format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
+     */
     public function toCMY()
     {
         return $this->toRGB()->toCMY();
     }
 
-   /**
-    * Convert the color to CMYK format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
-    */
+    /**
+     * Convert the color to CMYK format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
+     */
     public function toCMYK()
     {
         return $this->toCMY()->toCMYK();
     }
 
-   /**
-    * Convert the color to CIELab format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
-    */
+    /**
+     * Convert the color to CIELab format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
+     */
     public function toCIELab()
     {
         $Xn = 95.047;
@@ -193,21 +193,21 @@ class XYZ extends ColorJizz
         return new CIELab($l, $a, $b);
     }
 
-   /**
-    * Convert the color to CIELCh format
-    *
-    * @return MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
-    */
+    /**
+     * Convert the color to CIELCh format
+     *
+     * @return MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
+     */
     public function toCIELCh()
     {
         return $this->toCIELab()->toCIELCh();
     }
 
-   /**
-    * A string representation of this color in the current format
-    *
-    * @return string The color in format: $x,$y,$z
-    */
+    /**
+     * A string representation of this color in the current format
+     *
+     * @return string The color in format: $x,$y,$z
+     */
     public function __toString()
     {
         return sprintf('%s,%s,%s', $this->x, $this->y, $this->z);

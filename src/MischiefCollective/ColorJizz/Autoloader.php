@@ -29,7 +29,10 @@ class Autoloader
             return;
         }
 
-        if (is_file($file = dirname(__FILE__) . '/../../' . str_replace(array('\\', "\0"), array('/', ''), $class) . '.php')) {
+        if (is_file(
+            $file = dirname(__FILE__) . '/../../' . str_replace(array('\\', "\0"), array('/', ''), $class) . '.php'
+        )
+        ) {
             require $file;
         }
     }
