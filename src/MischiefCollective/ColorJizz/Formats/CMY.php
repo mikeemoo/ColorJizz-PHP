@@ -58,7 +58,7 @@ class CMY extends ColorJizz
         return new CMY($cyan, $magenta, $yellow);
     }
 
-   
+
     /**
      * Get the amount of Cyan
      *
@@ -66,10 +66,10 @@ class CMY extends ColorJizz
      */
     public function getCyan()
     {
-      return $this->cyan;
+        return $this->cyan;
     }
 
-    
+
     /**
      * Get the amount of Magenta
      *
@@ -77,10 +77,10 @@ class CMY extends ColorJizz
      */
     public function getMagenta()
     {
-      return $this->magenta;
+        return $this->magenta;
     }
-    
-    
+
+
     /**
      * Get the amount of Yellow
      *
@@ -88,9 +88,9 @@ class CMY extends ColorJizz
      */
     public function getYellow()
     {
-      return $this->yellow;
+        return $this->yellow;
     }
-    
+
 
     /**
      * Convert the color to Hex format

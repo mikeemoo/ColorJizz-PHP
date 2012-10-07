@@ -180,9 +180,9 @@ class RGB extends ColorJizz
         if ($delta == 0) {
             return new HSV(0, 0, $value * 100);
         }
-        
+
         $saturation = 0;
-        
+
         if ($max != 0) {
             $saturation = $delta / $max;
         } else {

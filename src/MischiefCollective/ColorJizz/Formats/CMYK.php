@@ -65,7 +65,7 @@ class CMYK extends ColorJizz
     {
         return new CMYK($cyan, $magenta, $yellow, $key);
     }
-    
+
     /**
      * Get the amount of Cyan
      *
@@ -73,10 +73,10 @@ class CMYK extends ColorJizz
      */
     public function getCyan()
     {
-      return $this->cyan;
+        return $this->cyan;
     }
 
-    
+
     /**
      * Get the amount of Magenta
      *
@@ -84,10 +84,10 @@ class CMYK extends ColorJizz
      */
     public function getMagenta()
     {
-      return $this->magenta;
+        return $this->magenta;
     }
-    
-    
+
+
     /**
      * Get the amount of Yellow
      *
@@ -95,10 +95,10 @@ class CMYK extends ColorJizz
      */
     public function getYellow()
     {
-      return $this->yellow;
+        return $this->yellow;
     }
-    
-    
+
+
     /**
      * Get the key (black)
      *
@@ -106,8 +106,8 @@ class CMYK extends ColorJizz
      */
     public function getKey()
     {
-      return $this->key;
-    }    
+        return $this->key;
+    }
 
     /**
      * Convert the color to Hex format
