@@ -88,15 +88,15 @@ class HSV extends ColorJizz
                 $var_r = $v;
                 $var_g = $var_3;
                 $var_b = $var_1;
-            } else if ($var_i == 1) {
+            } elseif ($var_i == 1) {
                 $var_r = $var_2;
                 $var_g = $v;
                 $var_b = $var_1;
-            } else if ($var_i == 2) {
+            } elseif ($var_i == 2) {
                 $var_r = $var_1;
                 $var_g = $v;
                 $var_b = $var_3;
-            } else if ($var_i == 3) {
+            } elseif ($var_i == 3) {
                 $var_r = $var_1;
                 $var_g = $var_2;
                 $var_b = $v;
