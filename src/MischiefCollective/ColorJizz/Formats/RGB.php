@@ -257,4 +257,3 @@ class RGB extends ColorJizz
         return $this->getR() . ',' . $this->getG() . ',' . $this->getB();
     }
 }
-
