@@ -1,6 +1,12 @@
 {
     "name": "mischiefcollective/colorjizz",
-    "require": {},
+    "description": "Classes for manipulating colors, converting to different formats and finding color harmonies",
+    "homepage": "http://mikeefranklin.co.uk:8080/job/ColorJizz-PHP/",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.10"
+    },
+    "type": "library",
     "autoload": {
         "psr-0": {
             "MischiefCollective": "src"
