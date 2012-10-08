@@ -1,5 +1,5 @@
 {
-    "name": "MischiefCollective/ColorJizz",
+    "name": "mischiefcollective/colorjizz",
     "require": {},
     "autoload": {
         "psr-0": {
