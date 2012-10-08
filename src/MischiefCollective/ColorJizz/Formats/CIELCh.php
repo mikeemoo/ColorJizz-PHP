@@ -24,35 +24,35 @@ class CIELCh extends ColorJizz
      * The lightness
      * @var float
      */
-    public $l;
+    public $lightness;
 
     /**
      * The chroma
      * @var float
      */
-    public $c;
+    public $chroma;
 
     /**
      * The hue
      * @var float
      */
-    public $h;
+    public $hue;
 
     /**
      * Create a new CIELCh color
      *
-     * @param float $l The lightness
-     * @param float $c The chroma
-     * @param float $h The hue
+     * @param float $lightness The lightness
+     * @param float $chroma The chroma
+     * @param float $hue The hue
      */
-    public function __construct($l, $c, $h)
+    public function __construct($lightness, $chroma, $hue)
     {
         $this->toSelf = "toCIELCh";
-        $this->l = $l;
-        $this->c = $c;
-        $this->h = fmod($h, 360);
-        if ($this->h < 0) {
-            $this->h += 360;
+        $this->lightness = $lightness;
+        $this->chroma = $chroma;
+        $this->hue = fmod($hue, 360);
+        if ($this->hue < 0) {
+            $this->hue += 360;
         }
     }
 
@@ -133,10 +133,10 @@ class CIELCh extends ColorJizz
      */
     public function toCIELab()
     {
-        $l = $this->l;
-        $hradi = $this->h * (pi() / 180);
-        $a = cos($hradi) * $this->c;
-        $b = sin($hradi) * $this->c;
+        $l = $this->lightness;
+        $hradi = $this->hue * (pi() / 180);
+        $a = cos($hradi) * $this->chroma;
+        $b = sin($hradi) * $this->chroma;
         return new CIELab($l, $a, $b);
     }
 
@@ -153,10 +153,10 @@ class CIELCh extends ColorJizz
     /**
      * A string representation of this color in the current format
      *
-     * @return string The color in format: $l,$c,$h
+     * @return string The color in format: $lightness,$chroma,$hue
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->l, $this->c, $this->h);
+        return sprintf('%s,%s,%s', $this->lightness, $this->chroma, $this->hue);
     }
 }

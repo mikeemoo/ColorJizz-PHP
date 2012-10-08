@@ -89,9 +89,9 @@ class CIELab extends ColorJizz
         $ref_Y = 100.000;
         $ref_Z = 108.883;
 
-        $var_Y = ($this->l + 16) / 116;
-        $var_X = $this->a / 500 + $var_Y;
-        $var_Z = $var_Y - $this->b / 200;
+        $var_Y = ($this->lightness + 16) / 116;
+        $var_X = $this->a_dimension / 500 + $var_Y;
+        $var_Z = $var_Y - $this->b_dimension / 200;
 
         if (pow($var_Y, 3) > 0.008856) {
             $var_Y = pow($var_Y, 3);
@@ -171,7 +171,7 @@ class CIELab extends ColorJizz
      */
     public function toCIELCh()
     {
-        $var_H = atan2($this->b, $this->a);
+        $var_H = atan2($this->b_dimension, $this->a_dimension);
 
         if ($var_H > 0) {
             $var_H = ($var_H / pi()) * 180;

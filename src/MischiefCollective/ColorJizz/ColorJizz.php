@@ -100,7 +100,7 @@ abstract class ColorJizz
         $a = $this->toCIELab();
         $b = $destinationColor->toCIELab();
 
-        return sqrt(pow(($a->l - $b->l), 2) + pow(($a->a - $b->a), 2) + pow(($a->b - $b->b), 2));
+        return sqrt(pow(($a->lightness - $b->lightness), 2) + pow(($a->a_dimension - $b->a_dimension), 2) + pow(($a->b_dimension - $b->b_dimension), 2));
     }
 
     /**
@@ -111,10 +111,10 @@ abstract class ColorJizz
     public function websafe()
     {
         $palette = array();
-        for ($r = 0; $r <= 255; $r += 51) {
-            for ($g = 0; $g <= 255; $g += 51) {
-                for ($b = 0; $b <= 255; $b += 51) {
-                    $palette[] = new RGB($r, $g, $b);
+        for ($red = 0; $red <= 255; $red += 51) {
+            for ($green = 0; $green <= 255; $green += 51) {
+                for ($blue = 0; $blue <= 255; $blue += 51) {
+                    $palette[] = new RGB($red, $green, $blue);
                 }
             }
         }
@@ -152,7 +152,7 @@ abstract class ColorJizz
             $palette[] = $this;
         }
         for ($i = 1; $i < $parts; $i++) {
-            $t = new CIELCh($current->l, $current->c, $current->h + ($distance * $i));
+            $t = new CIELCh($current->lightness, $current->chroma, $current->hue + ($distance * $i));
             $palette[] = call_user_func(array($t, $this->toSelf));
         }
         return $palette;
@@ -191,11 +191,11 @@ abstract class ColorJizz
     public function sweetspot($includeSelf = false)
     {
         $colors = array($this->toHSV());
-        $colors[1] = new HSV($colors[0]->h, round($colors[0]->s * 0.3), min(round($colors[0]->v * 1.3), 100));
-        $colors[3] = new HSV(($colors[0]->h + 300) % 360, $colors[0]->s, $colors[0]->v);
-        $colors[2] = new HSV($colors[1]->h, min(round($colors[1]->s * 1.2), 100), min(round($colors[1]->v * 0.5), 100));
-        $colors[4] = new HSV($colors[2]->h, 0, ($colors[2]->v + 50) % 100);
-        $colors[5] = new HSV($colors[4]->h, $colors[4]->s, ($colors[4]->v + 50) % 100);
+        $colors[1] = new HSV($colors[0]->hue, round($colors[0]->saturation * 0.3), min(round($colors[0]->value * 1.3), 100));
+        $colors[3] = new HSV(($colors[0]->hue + 300) % 360, $colors[0]->saturation, $colors[0]->value);
+        $colors[2] = new HSV($colors[1]->hue, min(round($colors[1]->saturation * 1.2), 100), min(round($colors[1]->value * 0.5), 100));
+        $colors[4] = new HSV($colors[2]->hue, 0, ($colors[2]->value + 50) % 100);
+        $colors[5] = new HSV($colors[4]->hue, $colors[4]->saturation, ($colors[4]->value + 50) % 100);
         if (!$includeSelf) {
             array_shift($colors);
         }
@@ -227,13 +227,13 @@ abstract class ColorJizz
         $current = $this->toCIELCh();
         $rtn = array();
 
-        $t = new CIELCh($current->l, $current->c, $current->h + $side1);
+        $t = new CIELCh($current->lightness, $current->chroma, $current->hue + $side1);
         $rtn[] = call_user_func(array($t, $this->toSelf));
 
-        $t = new CIELCh($current->l, $current->c, $current->h + $side1 + $side2);
+        $t = new CIELCh($current->lightness, $current->chroma, $current->hue + $side1 + $side2);
         $rtn[] = call_user_func(array($t, $this->toSelf));
 
-        $t = new CIELCh($current->l, $current->c, $current->h + $side1 + $side2 + $side1);
+        $t = new CIELCh($current->lightness, $current->chroma, $current->hue + $side1 + $side2 + $side1);
         $rtn[] = call_user_func(array($t, $this->toSelf));
 
         if ($includeSelf) {
@@ -250,9 +250,9 @@ abstract class ColorJizz
         $colors = array();
         $steps--;
         for ($n = 1; $n < $steps; $n++) {
-            $nr = floor($a->r + ($n * ($b->r - $a->r) / $steps));
-            $ng = floor($a->g + ($n * ($b->g - $a->g) / $steps));
-            $nb = floor($a->b + ($n * ($b->b - $a->b) / $steps));
+            $nr = floor($a->red + ($n * ($b->red - $a->red) / $steps));
+            $ng = floor($a->green + ($n * ($b->green - $a->green) / $steps));
+            $nb = floor($a->blue + ($n * ($b->blue - $a->blue) / $steps));
             $t = new RGB($nr, $ng, $nb);
             $colors[] = call_user_func(array($t, $this->toSelf));
         }
@@ -271,7 +271,7 @@ abstract class ColorJizz
     public function greyscale()
     {
         $a = $this->toRGB();
-        $ds = $a->r * 0.3 + $a->g * 0.59 + $a->b * 0.11;
+        $ds = $a->red * 0.3 + $a->green * 0.59 + $a->blue * 0.11;
         $t = new RGB($ds, $ds, $ds);
         return call_user_func(array($t, $this->toSelf));
     }
@@ -286,8 +286,8 @@ abstract class ColorJizz
     public function hue($degreeModifier)
     {
         $a = $this->toCIELCh();
-        $a->h += $degreeModifier;
-        $a->h = fmod($a->h, 360);
+        $a->hue += $degreeModifier;
+        $a->hue = fmod($a->hue, 360);
         return call_user_func(array($a, $this->toSelf));
     }
 
@@ -301,8 +301,8 @@ abstract class ColorJizz
     public function saturation($satModifier)
     {
         $a = $this->toHSV();
-        $a->s += ($satModifier / 100);
-        $a->s = min(1, max(0, $a->s));
+        $a->saturation += ($satModifier / 100);
+        $a->saturation = min(1, max(0, $a->saturation));
         return call_user_func(array($a, $this->toSelf));
     }
 
@@ -316,7 +316,7 @@ abstract class ColorJizz
     public function brightness($brightnessModifier)
     {
         $a = $this->toCIELab();
-        $a->l += $brightnessModifier;
+        $a->lightness += $brightnessModifier;
         return call_user_func(array($a, $this->toSelf));
     }
 }
