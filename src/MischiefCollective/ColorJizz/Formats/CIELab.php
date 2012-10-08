@@ -24,19 +24,19 @@ class CIELab extends ColorJizz
      * The lightness
      * @var float
      */
-    public $l;
+    public $lightness;
 
     /**
-     * The a dimenson
+     * The a dimension
      * @var float
      */
-    public $a;
+    public $a_dimension;
 
     /**
      * The b dimenson
      * @var float
      */
-    public $b;
+    public $b_dimension;
 
     /**
      * Create a new CIELab color
@@ -45,17 +45,17 @@ class CIELab extends ColorJizz
      * @param float $a The a dimenson
      * @param float $b The b dimenson
      */
-    public function __construct($l, $a, $b)
+    public function __construct($lightness, $a_dimension, $b_dimension)
     {
         $this->toSelf = "toCIELab";
-        $this->l = $l; //$this->roundDec($l, 3);
-        $this->a = $a; //$this->roundDec($a, 3);
-        $this->b = $b; //$this->roundDec($b, 3);
+        $this->lightness = $lightness; //$this->roundDec($l, 3);
+        $this->a_dimension = $a_dimension; //$this->roundDec($a, 3);
+        $this->b_dimension = $b_dimension; //$this->roundDec($b, 3);
     }
 
-    public static function create($l, $a, $b)
+    public static function create($lightness, $a_dimension, $b_dimension)
     {
-        return new CIELab($l, $a, $b);
+        return new CIELab($lightness, $a_dimension, $b_dimension);
     }
 
     /**
@@ -108,10 +108,10 @@ class CIELab extends ColorJizz
         } else {
             $var_Z = ($var_Z - 16 / 116) / 7.787;
         }
-        $x = $ref_X * $var_X;
-        $y = $ref_Y * $var_Y;
-        $z = $ref_Z * $var_Z;
-        return new XYZ($x, $y, $z);
+        $position_x = $ref_X * $var_X;
+        $position_y = $ref_Y * $var_Y;
+        $position_z = $ref_Z * $var_Z;
+        return new XYZ($position_x, $position_y, $position_z);
     }
 
     /**
@@ -179,20 +179,20 @@ class CIELab extends ColorJizz
             $var_H = 360 - (abs($var_H) / pi()) * 180;
         }
 
-        $l = $this->l;
-        $c = sqrt(pow($this->a, 2) + pow($this->b, 2));
-        $h = $var_H;
+        $lightness = $this->lightness;
+        $chroma = sqrt(pow($this->a_dimension, 2) + pow($this->b_dimension, 2));
+        $hue = $var_H;
 
-        return new CIELCh($l, $c, $h);
+        return new CIELCh($lightness, $chroma, $hue);
     }
 
     /**
      * A string representation of this color in the current format
      *
-     * @return string The color in format: $l,$a,$b
+     * @return string The color in format: $lightness,$a_dimension,$b_dimension
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->l, $this->a, $this->b);
+        return sprintf('%s,%s,%s', $this->lightness, $this->a_dimension, $this->b_dimension);
     }
 }

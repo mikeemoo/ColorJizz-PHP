@@ -110,9 +110,7 @@ abstract class ColorJizz
      */
     public function websafe()
     {
-        
         $palette = array();
-        
         for ($r = 0; $r <= 255; $r += 51) {
             for ($g = 0; $g <= 255; $g += 51) {
                 for ($b = 0; $b <= 255; $b += 51) {
@@ -120,8 +118,7 @@ abstract class ColorJizz
                 }
             }
         }
-        
-        return $this->match($palette);    
+        return $this->match($palette);
     }
 
     /**
