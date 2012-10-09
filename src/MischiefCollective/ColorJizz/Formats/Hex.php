@@ -299,10 +299,10 @@ class Hex extends ColorJizz
      */
     public function toRGB()
     {
-        $r = (($this->hex & 0xFF0000) >> 16);
-        $g = (($this->hex & 0x00FF00) >> 8);
-        $b = (($this->hex & 0x0000FF));
-        return new RGB($r, $g, $b);
+        $red = (($this->hex & 0xFF0000) >> 16);
+        $green = (($this->hex & 0x00FF00) >> 8);
+        $blue = (($this->hex & 0x0000FF));
+        return new RGB($red, $green, $blue);
     }
 
     /**

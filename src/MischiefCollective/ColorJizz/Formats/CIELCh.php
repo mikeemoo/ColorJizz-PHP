@@ -133,11 +133,10 @@ class CIELCh extends ColorJizz
      */
     public function toCIELab()
     {
-        $l = $this->lightness;
         $hradi = $this->hue * (pi() / 180);
-        $a = cos($hradi) * $this->chroma;
-        $b = sin($hradi) * $this->chroma;
-        return new CIELab($l, $a, $b);
+        $a_dimension = cos($hradi) * $this->chroma;
+        $b_dimension = sin($hradi) * $this->chroma;
+        return new CIELab($this->lightness, $a_dimension, $b_dimension);
     }
 
     /**

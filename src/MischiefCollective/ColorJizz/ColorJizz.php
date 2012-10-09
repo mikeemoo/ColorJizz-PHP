@@ -100,7 +100,11 @@ abstract class ColorJizz
         $a = $this->toCIELab();
         $b = $destinationColor->toCIELab();
 
-        return sqrt(pow(($a->lightness - $b->lightness), 2) + pow(($a->a_dimension - $b->a_dimension), 2) + pow(($a->b_dimension - $b->b_dimension), 2));
+        $lightness_pow = pow(($a->lightness - $b->lightness), 2);
+        $a_dimension_pow = pow(($a->a_dimension - $b->a_dimension), 2);
+        $b_dimension_pow = pow(($a->b_dimension - $b->b_dimension), 2);
+
+        return sqrt($lightness_pow + $a_dimension_pow + $b_dimension_pow);
     }
 
     /**
