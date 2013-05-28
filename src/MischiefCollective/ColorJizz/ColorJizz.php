@@ -305,8 +305,7 @@ abstract class ColorJizz
     public function saturation($satModifier)
     {
         $a = $this->toHSV();
-        $a->saturation += ($satModifier / 100);
-        $a->saturation = min(1, max(0, $a->saturation));
+        $a->saturation += $satModifier;
         return call_user_func(array($a, $this->toSelf));
     }
 
