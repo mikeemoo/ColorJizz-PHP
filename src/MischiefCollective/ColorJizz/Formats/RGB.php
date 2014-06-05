@@ -255,7 +255,7 @@ class RGB extends ColorJizz
      *
      * @return string The color in format: $red,$green,$blue (rounded)
      */
-    public function toString()
+    public function __toString()
     {
         return $this->getRed() . ',' . $this->getGreen() . ',' . $this->getBlue();
     }

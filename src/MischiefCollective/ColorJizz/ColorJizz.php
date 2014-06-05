@@ -284,29 +284,31 @@ abstract class ColorJizz
      * Modify the hue by $degreeModifier degrees
      *
      * @param int $degreeModifier Degrees to modify by
+     * @param bool $absolute If TRUE set absolute value
      *
      * @return MischiefCollective\ColorJizz\ColorJizz The modified color
      */
-    public function hue($degreeModifier)
+    public function hue($degreeModifier, $absolute = FALSE)
     {
         $a = $this->toCIELCh();
-        $a->hue += $degreeModifier;
+        $a->hue = $absolute ? $degreeModifier : $a->hue + $degreeModifier;
         $a->hue = fmod($a->hue, 360);
         return call_user_func(array($a, $this->toSelf));
     }
 
     /**
-     * Modify the saturation by $brightnessModifier
+     * Modify the saturation by $satModifier
      *
      * @param int $satModifier Value to modify by
+     * @param bool $absolute If TRUE set absolute value
      *
      * @return MischiefCollective\ColorJizz\ColorJizz The modified color
      */
-    public function saturation($satModifier)
+    public function saturation($satModifier, $absolute = FALSE)
     {
         $a = $this->toHSV();
-        $a->saturation += ($satModifier / 100);
-        $a->saturation = min(1, max(0, $a->saturation));
+        $a->saturation = $absolute ? $satModifier : $a->saturation + $satModifier;
+
         return call_user_func(array($a, $this->toSelf));
     }
 
@@ -314,13 +316,14 @@ abstract class ColorJizz
      * Modify the brightness by $brightnessModifier
      *
      * @param int $brightnessModifier Value to modify by
+     * @param bool $absolute If TRUE set absolute value
      *
      * @return MischiefCollective\ColorJizz\ColorJizz The modified color
      */
-    public function brightness($brightnessModifier)
+    public function brightness($brightnessModifier, $absolute = FALSE)
     {
         $a = $this->toCIELab();
-        $a->lightness += $brightnessModifier;
+        $a->lightness = $absolute ? $brightnessModifier : $a->lightness + $brightnessModifier;
         return call_user_func(array($a, $this->toSelf));
     }
 }
