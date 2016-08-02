@@ -210,6 +210,6 @@ class XYZ extends ColorJizz
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->x, $this->y, $this->z);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->x, $this->y, $this->z);
     }
 }

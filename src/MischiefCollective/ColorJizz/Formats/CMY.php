@@ -217,6 +217,6 @@ class CMY extends ColorJizz
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->cyan, $this->magenta, $this->yellow);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->cyan, $this->magenta, $this->yellow);
     }
 }

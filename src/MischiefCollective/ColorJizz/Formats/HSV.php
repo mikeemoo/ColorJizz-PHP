@@ -196,6 +196,6 @@ class HSV extends ColorJizz
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->hue, $this->saturation, $this->value);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->hue, $this->saturation, $this->value);
     }
 }

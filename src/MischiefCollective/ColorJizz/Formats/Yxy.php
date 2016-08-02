@@ -153,6 +153,6 @@ class Yxy extends ColorJizz
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->Y, $this->x, $this->y);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->Y, $this->x, $this->y);
     }
 }
