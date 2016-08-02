@@ -376,6 +376,23 @@ class Hex extends ColorJizz
     }
 
     /**
+     * Returns the color name if available otherwise returns false
+     *
+     * @return mixed    Color name as string or false if the color has no name
+     */
+    public function hasColorName()
+    {
+      $aColorNames = array_flip(self::$color_names);
+
+      if(isset($aColorNames[$this->hex])) {
+        return $aColorNames[$this->hex];
+      }
+
+      return false;
+    }
+
+
+    /**
      * A string representation of this color in the current format
      *
      * @return string The color in format: RRGGBB
