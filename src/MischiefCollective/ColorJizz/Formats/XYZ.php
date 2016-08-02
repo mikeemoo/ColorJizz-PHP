@@ -117,8 +117,8 @@ class XYZ extends ColorJizz
     public function toYxy()
     {
         $Y = $this->y;
-        $x = $this->x / ($this->x + $this->y + $this->z);
-        $y = $this->y / ($this->x + $Y + $this->z);
+        $x = ($this->x == 0) ? 0 : $this->x / ($this->x + $this->y + $this->z);
+        $y = ($this->y == 0) ? 0 : $this->y / ($this->x + $Y + $this->z);
         return new Yxy($Y, $x, $y);
     }
 
