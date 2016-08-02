@@ -322,7 +322,7 @@ class Hex extends ColorJizz
      */
     public function toYxy()
     {
-        return $this->toRGB()->toXYZ();
+        return $this->toRGB()->toYxy();
     }
 
     /**
