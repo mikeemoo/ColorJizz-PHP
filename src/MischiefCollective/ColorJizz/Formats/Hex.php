@@ -275,7 +275,7 @@ class Hex extends ColorJizz
      *
      * @param int $hex the hexidecimal value (i.e. 0x000000)
      *
-     * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
      */
     public static function create($hex)
     {
@@ -285,7 +285,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to Hex format
      *
-     * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
      */
     public function toHex()
     {
@@ -295,7 +295,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to RGB format
      *
-     * @return MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
+     * @return \MischiefCollective\ColorJizz\Formats\RGB the color in RGB format
      */
     public function toRGB()
     {
@@ -308,7 +308,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to XYZ format
      *
-     * @return MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
+     * @return \MischiefCollective\ColorJizz\Formats\XYZ the color in XYZ format
      */
     public function toXYZ()
     {
@@ -318,7 +318,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to Yxy format
      *
-     * @return MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
+     * @return \MischiefCollective\ColorJizz\Formats\Yxy the color in Yxy format
      */
     public function toYxy()
     {
@@ -328,7 +328,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to HSV format
      *
-     * @return MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
+     * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
      */
     public function toHSV()
     {
@@ -338,7 +338,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to CMY format
      *
-     * @return MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
+     * @return \MischiefCollective\ColorJizz\Formats\CMY the color in CMY format
      */
     public function toCMY()
     {
@@ -348,7 +348,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to CMYK format
      *
-     * @return MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
+     * @return \MischiefCollective\ColorJizz\Formats\CMYK the color in CMYK format
      */
     public function toCMYK()
     {
@@ -358,7 +358,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to CIELab format
      *
-     * @return MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
+     * @return \MischiefCollective\ColorJizz\Formats\CIELab the color in CIELab format
      */
     public function toCIELab()
     {
@@ -368,7 +368,7 @@ class Hex extends ColorJizz
     /**
      * Convert the color to CIELCh format
      *
-     * @return MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
+     * @return \MischiefCollective\ColorJizz\Formats\CIELCh the color in CIELCh format
      */
     public function toCIELCh()
     {
@@ -411,7 +411,7 @@ class Hex extends ColorJizz
      *
      * @param string $str Can be a color name or string hex value (i.e. "FFFFFF")
      *
-     * @return MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
+     * @return \MischiefCollective\ColorJizz\Formats\Hex the color in Hex format
      */
     public static function fromString($str)
     {
