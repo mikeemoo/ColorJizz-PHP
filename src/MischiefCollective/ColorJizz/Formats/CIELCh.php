@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * CIELCh represents the CIELCh color format
@@ -156,6 +157,6 @@ class CIELCh extends ColorJizz
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->lightness, $this->chroma, $this->hue);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->lightness, $this->chroma, $this->hue);
     }
 }

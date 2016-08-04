@@ -257,6 +257,6 @@ class RGB extends ColorJizz
      */
     public function __toString()
     {
-        return $this->getRed() . ',' . $this->getGreen() . ',' . $this->getBlue();
+        return $this->getRed() . ', ' . $this->getGreen() . ', ' . $this->getBlue();
     }
 }

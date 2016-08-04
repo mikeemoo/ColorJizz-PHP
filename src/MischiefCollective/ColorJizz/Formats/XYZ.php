@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * XYZ represents the XYZ color format
@@ -117,8 +118,8 @@ class XYZ extends ColorJizz
     public function toYxy()
     {
         $Y = $this->y;
-        $x = $this->x / ($this->x + $this->y + $this->z);
-        $y = $this->y / ($this->x + $Y + $this->z);
+        $x = ($this->x == 0) ? 0 : $this->x / ($this->x + $this->y + $this->z);
+        $y = ($this->y == 0) ? 0 : $this->y / ($this->x + $Y + $this->z);
         return new Yxy($Y, $x, $y);
     }
 
@@ -210,6 +211,6 @@ class XYZ extends ColorJizz
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->x, $this->y, $this->z);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->x, $this->y, $this->z);
     }
 }

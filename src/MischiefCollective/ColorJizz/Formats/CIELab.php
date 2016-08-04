@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * CIELab represents the CIELab color format
@@ -193,6 +194,6 @@ class CIELab extends ColorJizz
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->lightness, $this->a_dimension, $this->b_dimension);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->lightness, $this->a_dimension, $this->b_dimension);
     }
 }

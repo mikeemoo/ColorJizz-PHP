@@ -322,7 +322,7 @@ class Hex extends ColorJizz
      */
     public function toYxy()
     {
-        return $this->toRGB()->toXYZ();
+        return $this->toRGB()->toYxy();
     }
 
     /**
@@ -374,6 +374,23 @@ class Hex extends ColorJizz
     {
         return $this->toCIELab()->toCIELCh();
     }
+
+    /**
+     * Returns the color name if available otherwise returns false
+     *
+     * @return mixed    Color name as string or false if the color has no name
+     */
+    public function hasColorName()
+    {
+      $aColorNames = array_flip(self::$color_names);
+
+      if(isset($aColorNames[$this->hex])) {
+        return $aColorNames[$this->hex];
+      }
+
+      return false;
+    }
+
 
     /**
      * A string representation of this color in the current format

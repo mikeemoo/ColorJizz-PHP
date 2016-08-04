@@ -185,6 +185,34 @@ abstract class ColorJizz
         return $this->hue(180);
     }
 
+    public function isDark()
+    {
+      $sHexColor = $this->toHex();
+      $r         = (hexdec(substr($sHexColor, 0, 2)) / 255);
+      $g         = (hexdec(substr($sHexColor, 2, 2)) / 255);
+      $b         = (hexdec(substr($sHexColor, 4, 2)) / 255);
+      $lightness = round((((max($r, $g, $b) + min($r, $g, $b)) / 2) * 100));
+
+      if($lightness >= 50){
+
+        return false;
+      }else{
+
+        return true;
+      }
+    }
+
+    public function getMatchingTextColor()
+    {
+      if($this->isDark() === false){
+
+        return new Hex(0x000000);
+      }else{
+
+        return new Hex(0xFFFFFF);
+      }
+    }
+
     /**
      * Find complimentary colors
      *

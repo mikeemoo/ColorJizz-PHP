@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * Yxy represents the Yxy color format
@@ -60,7 +61,7 @@ class Yxy extends ColorJizz
      */
     public function toHex()
     {
-        return $this->toXYZ()->toYxy();
+        return $this->toXYZ()->toRGB()->toHex();
     }
 
     /**
@@ -80,9 +81,9 @@ class Yxy extends ColorJizz
      */
     public function toXYZ()
     {
-        $X = $this->x * ($this->Y / $this->y);
+        $X = ($this->Y == 0) ? 0 : $this->x * ($this->Y / $this->y);
         $Y = $this->Y;
-        $Z = (1 - $this->x - $this->y) * ($this->Y / $this->y);
+        $Z = ($this->Y == 0) ? 0 : (1 - $this->x - $this->y) * ($this->Y / $this->y);
         return new XYZ($X, $Y, $Z);
     }
 
@@ -153,6 +154,6 @@ class Yxy extends ColorJizz
      */
     public function __toString()
     {
-        return sprintf('%s,%s,%s', $this->Y, $this->x, $this->y);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->Y, $this->x, $this->y);
     }
 }
