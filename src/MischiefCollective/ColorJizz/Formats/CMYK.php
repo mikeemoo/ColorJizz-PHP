@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * CMYK represents the CMYK color format

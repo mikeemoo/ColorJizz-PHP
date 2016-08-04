@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * CIELab represents the CIELab color format

@@ -10,6 +10,7 @@
 namespace MischiefCollective\ColorJizz\Formats;
 
 use MischiefCollective\ColorJizz\ColorJizz;
+use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
  * XYZ represents the XYZ color format
