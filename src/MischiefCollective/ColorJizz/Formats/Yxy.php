@@ -61,7 +61,7 @@ class Yxy extends ColorJizz
      */
     public function toHex()
     {
-        return $this->toXYZ()->toYxy();
+        return $this->toXYZ()->toRGB()->toHex();
     }
 
     /**
@@ -81,9 +81,9 @@ class Yxy extends ColorJizz
      */
     public function toXYZ()
     {
-        $X = $this->x * ($this->Y / $this->y);
+        $X = ($this->Y == 0) ? 0 : $this->x * ($this->Y / $this->y);
         $Y = $this->Y;
-        $Z = (1 - $this->x - $this->y) * ($this->Y / $this->y);
+        $Z = ($this->Y == 0) ? 0 : (1 - $this->x - $this->y) * ($this->Y / $this->y);
         return new XYZ($X, $Y, $Z);
     }
 
