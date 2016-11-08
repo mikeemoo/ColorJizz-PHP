@@ -13,85 +13,46 @@ use MischiefCollective\ColorJizz\ColorJizz;
 use MischiefCollective\ColorJizz\Exceptions\InvalidArgumentException;
 
 /**
- * CMY represents the CMY color format
+ * HSL represents the HSL color format
  *
  *
- * @author Mikee Franklin <mikeefranklin@gmail.com>
+ * @author Drake Parker <e.drake.p@gmail.com>
  */
-class CMY extends ColorJizz
+class HSL extends ColorJizz
 {
 
     /**
-     * The cyan
+     * The hue
      * @var float
      */
-    private $cyan;
+    public $hue;
 
     /**
-     * The magenta
+     * The saturation
      * @var float
      */
-    private $magenta;
+    public $saturation;
 
     /**
-     * The yellow
+     * The lightness
      * @var float
      */
-    private $yellow;
+    public $lightness;
 
     /**
-     * Create a new CIELab color
+     * Create a new HSL color
      *
-     * @param float $cyan The cyan
-     * @param float $magenta The magenta
-     * @param float $yellow The yellow
+     * @param float $hue The hue (0-1)
+     * @param float $saturation The saturation (0-1)
+     * @param float $lightness The lightness (0-1)
      */
-    public function __construct($cyan, $magenta, $yellow)
+    public function __construct($hue, $saturation, $lightness)
     {
-        $this->toSelf = "toCMY";
-        $this->cyan = $cyan;
-        $this->magenta = $magenta;
-        $this->yellow = $yellow;
+        $this->toSelf = "toHSL";
+        $this->hue = $hue;
+        $this->saturation = $saturation;
+        $this->lightness = $lightness;
     }
-
-    public static function create($cyan, $magenta, $yellow)
-    {
-        return new CMY($cyan, $magenta, $yellow);
-    }
-
-
-    /**
-     * Get the amount of Cyan
-     *
-     * @return int The amount of cyan
-     */
-    public function getCyan()
-    {
-        return $this->cyan;
-    }
-
-
-    /**
-     * Get the amount of Magenta
-     *
-     * @return int The amount of magenta
-     */
-    public function getMagenta()
-    {
-        return $this->magenta;
-    }
-
-
-    /**
-     * Get the amount of Yellow
-     *
-     * @return int The amount of yellow
-     */
-    public function getYellow()
-    {
-        return $this->yellow;
-    }
-
 
     /**
      * Convert the color to Hex format
@@ -110,10 +71,7 @@ class CMY extends ColorJizz
      */
     public function toRGB()
     {
-        $red = (1 - $this->cyan) * 255;
-        $green = (1 - $this->magenta) * 255;
-        $blue = (1 - $this->yellow) * 255;
-        return new RGB($red, $green, $blue);
+        return $this->toHSV()->toRGB();
     }
 
     /**
@@ -143,7 +101,7 @@ class CMY extends ColorJizz
      */
     public function toHSL()
     {
-        return $this->toHSV()->toHSL();
+        return $this;
     }
 
     /**
@@ -153,7 +111,15 @@ class CMY extends ColorJizz
      */
     public function toHSV()
     {
-        return $this->toRGB()->toHSV();
+        $temp = $this->saturation * ($this->lightness < 50 ? $this->lightness : 100 - $this->lightness) / 100;
+
+        $h = $this->hue;
+        $v = $temp + $this->lightness;
+        $s = ($this->lightness + $temp > 0)
+            ? 200 * $temp / ($this->lightness + $temp)
+            : 0;
+
+        return new HSV($h, $s, $v);
     }
 
     /**
@@ -163,7 +129,7 @@ class CMY extends ColorJizz
      */
     public function toCMY()
     {
-        return $this;
+        return $this->toRGB()->toCMY();
     }
 
     /**
@@ -173,32 +139,7 @@ class CMY extends ColorJizz
      */
     public function toCMYK()
     {
-        $var_K = 1;
-        $cyan = $this->cyan;
-        $magenta = $this->magenta;
-        $yellow = $this->yellow;
-        if ($cyan < $var_K) {
-            $var_K = $cyan;
-        }
-        if ($magenta < $var_K) {
-            $var_K = $magenta;
-        }
-        if ($yellow < $var_K) {
-            $var_K = $yellow;
-        }
-        if ($var_K == 1) {
-            $cyan = 0;
-            $magenta = 0;
-            $yellow = 0;
-        } else {
-            $cyan = ($cyan - $var_K) / (1 - $var_K);
-            $magenta = ($magenta - $var_K) / (1 - $var_K);
-            $yellow = ($yellow - $var_K) / (1 - $var_K);
-        }
-
-        $key = $var_K;
-
-        return new CMYK($cyan, $magenta, $yellow, $key);
+        return $this->toCMY()->toCMYK();
     }
 
     /**
@@ -224,10 +165,10 @@ class CMY extends ColorJizz
     /**
      * A string representation of this color in the current format
      *
-     * @return string The color in format: $cyan,$magenta,$yellow
+     * @return string The color in format: $hue,$saturation,$lightness
      */
     public function __toString()
     {
-        return sprintf('%01.4f, %01.4f, %01.4f', $this->cyan, $this->magenta, $this->yellow);
+        return sprintf('%01.4f, %01.4f, %01.4f', $this->hue, $this->saturation, $this->lightness);
     }
 }

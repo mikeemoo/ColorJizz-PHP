@@ -128,4 +128,11 @@ class HexTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals($i, Hex::create($i)->toHSV()->toHex()->hex);
         }
     }
+
+    public function testToHSLAndBack()
+    {
+        for ($i = 0; $i <= 0xFFFFFF; $i += 0x0CCCCC) {
+          $this->assertEquals($i, Hex::create($i)->toHSL()->toHex()->hex);
+        }
+    }
 }

@@ -141,6 +141,22 @@ class HSV extends ColorJizz
     }
 
     /**
+     * Convert the color to HSL format
+     *
+     * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
+     */
+    public function toHSL()
+    {
+        $h = $this->hue;
+        $l = (2 - $this->saturation / 100) * $this->value / 2;
+        $s = ($l > 0 && $l < 100)
+            ? $this->saturation * $this->value / ($l < 50 ? $l * 2 : 200 - $l * 2)
+            : 0;
+
+        return new HSL($h, $s, $l);
+    }
+
+    /**
      * Convert the color to HSV format
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format

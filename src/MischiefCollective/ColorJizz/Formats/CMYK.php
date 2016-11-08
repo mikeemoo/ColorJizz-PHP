@@ -151,6 +151,16 @@ class CMYK extends ColorJizz
     }
 
     /**
+     * Convert the color to HSL format
+     *
+     * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
+     */
+    public function toHSL()
+    {
+        return $this->toHSV()->toHSL();
+    }
+
+    /**
      * Convert the color to HSV format
      *
      * @return \MischiefCollective\ColorJizz\Formats\HSV the color in HSV format
