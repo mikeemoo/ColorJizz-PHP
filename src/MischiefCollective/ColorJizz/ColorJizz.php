@@ -88,6 +88,13 @@ abstract class ColorJizz
     abstract public function toHSV();
 
     /**
+     * Convert the color to HSL format
+     *
+     * @return \MischiefCollective\ColorJizz\Formats\HSL the color in HSL format
+     */
+    abstract public function toHSL();
+
+    /**
      * Find the distance to the destination color
      *
      * @param \MischiefCollective\ColorJizz\ColorJizz $destinationColor The destination color

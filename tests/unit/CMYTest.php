@@ -121,6 +121,20 @@ class CMYTest extends \PHPUnit_Framework_TestCase
             }
         }
     }
+
+    public function testToHSLAndBack()
+    {
+        for ($c = 0; $c <= 1; $c += 0.1) {
+            for ($m = 0; $m <= 1; $m += 0.1) {
+                for ($y = 0; $y <= 1; $y += 0.1) {
+                    $cmy = CMY::create($c, $m, $y)->toHSL()->toCMY();
+                    $this->assertEquals($c, $cmy->getCyan(), null, self::DELTA);
+                    $this->assertEquals($m, $cmy->getMagenta(), null, self::DELTA);
+                    $this->assertEquals($y, $cmy->getYellow(), null, self::DELTA);
+                }
+            }
+        }
+    }
 }
 
 ?>
