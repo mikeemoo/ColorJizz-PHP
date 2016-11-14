@@ -113,9 +113,9 @@ class HSV extends ColorJizz
                 }
             }
 
-            $red = $var_r * 255;
-            $green = $var_g * 255;
-            $blue = $var_b * 255;
+            $red = round($var_r * 255);
+            $green = round($var_g * 255);
+            $blue = round($var_b * 255);
         }
         return new RGB($red, $green, $blue);
     }
