@@ -67,7 +67,7 @@ class CMY extends ColorJizz
      */
     public function getCyan()
     {
-        return $this->cyan;
+        return (int)$this->cyan;
     }
 
 
@@ -78,7 +78,7 @@ class CMY extends ColorJizz
      */
     public function getMagenta()
     {
-        return $this->magenta;
+        return (int)$this->magenta;
     }
 
 
@@ -89,7 +89,7 @@ class CMY extends ColorJizz
      */
     public function getYellow()
     {
-        return $this->yellow;
+        return (int)$this->yellow;
     }
 
 

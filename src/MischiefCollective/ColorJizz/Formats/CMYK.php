@@ -74,7 +74,7 @@ class CMYK extends ColorJizz
      */
     public function getCyan()
     {
-        return $this->cyan;
+        return (int)$this->cyan;
     }
 
 
@@ -85,7 +85,7 @@ class CMYK extends ColorJizz
      */
     public function getMagenta()
     {
-        return $this->magenta;
+        return (int)$this->magenta;
     }
 
 
@@ -96,7 +96,7 @@ class CMYK extends ColorJizz
      */
     public function getYellow()
     {
-        return $this->yellow;
+        return (int)$this->yellow;
     }
 
 
@@ -107,7 +107,7 @@ class CMYK extends ColorJizz
      */
     public function getKey()
     {
-        return $this->key;
+        return (int)$this->key;
     }
 
     /**
