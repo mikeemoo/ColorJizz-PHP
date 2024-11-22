@@ -72,7 +72,7 @@ class RGB extends ColorJizz
      */
     public function getRed()
     {
-        return (0.5 + $this->red) | 0;
+        return round(0.5 + $this->red) | 0;
     }
 
     /**
@@ -82,7 +82,7 @@ class RGB extends ColorJizz
      */
     public function getGreen()
     {
-        return (0.5 + $this->green) | 0;
+        return round(0.5 + $this->green) | 0;
     }
 
     /**
@@ -92,7 +92,7 @@ class RGB extends ColorJizz
      */
     public function getBlue()
     {
-        return (0.5 + $this->blue) | 0;
+        return round(0.5 + $this->blue) | 0;
     }
 
     /**
