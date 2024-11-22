@@ -110,7 +110,7 @@ abstract class ColorJizz
         $a_dimension_pow = pow(($a->a_dimension - $b->a_dimension), 2);
         $b_dimension_pow = pow(($a->b_dimension - $b->b_dimension), 2);
 
-        return sqrt($lightness_pow + $a_dimension_pow + $b_dimension_pow);
+        return (int)sqrt($lightness_pow + $a_dimension_pow + $b_dimension_pow);
     }
 
     /**
